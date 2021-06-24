@@ -1,0 +1,159 @@
+<div class="flex flex-1 flex-column height-50">
+  <mat-card class="flex-1 height-100 no-shadow">
+    <!-- <mat-card-header class="flex-custom-m margin-bottom-l" id="usercs"> -->
+    <!-- <img src="/assets/instances/eagle/cbc_welcome/banner.png" /> -->
+    <ng-container [wsResolverWidget]="sliderData1"></ng-container>
+    <!-- </mat-card-header> -->
+    <mat-card-content>
+      <div class="flex flex-1 flex-column margin-top-l">
+        <span *ngIf="showKarmayogiLink || showCBPLink" class="flex flex-1 mat-subheading-1">Other portals</span>
+        <div style="display: inline-flex;">
+          <mat-card class="flex flex-1 width-fill ws-mat-accent-border cursor-pointer margin-right-m" (click)=openky()
+            *ngIf="showKarmayogiLink">
+            <mat-icon class="margin-right-m new-color" svgIcon="karmagogi"></mat-icon>
+            <span class="mat-body-2 m-auto">Karmayogi officer portal</span>
+          </mat-card>
+          <mat-card class="flex flex-1 width-fill ws-mat-accent-border cursor-pointer" (click)=openCBP()
+            *ngIf="showCBPLink">
+            <mat-icon class="margin-right-m new-color" svgIcon="karmagogi"></mat-icon>
+            <span class="mat-body-2 m-auto">CBP portal</span>
+          </mat-card>
+        </div>
+        <!-- <mat-card class="flex flex-1 ws-mat-accent-border margin-top-m flex-column">
+          <div class="flex flex-1">
+            <span class="mat-body-1">Rate of resolution</span>
+            <span class="flex-1">&nbsp;</span>
+            <span class="mat-subheading-2 ws-mat-default-text">Go to dashboard</span>
+          </div>
+          <span class="mat-body-2 ws-mat-black60-text">Rate of completion of pending requests</span>
+          <div class="flex-1">
+            <div class="flex flex-1 flex-column margin-fix">
+              <div class="flex flex-1 filter max-height-60">
+                <a href="javascript:void(0)" class="filter-option" [ngClass]="{'ws-mat-accent-border-active' : resolutionFilter === 'week',
+                          'ws-mat-accent-border font-medium':resolutionFilter !== 'week'}" mat-button
+                  (click)="filterR('week')" role="button">This week</a>
+                <a href="javascript:void(0)" class="filter-option" [ngClass]="{'ws-mat-accent-border-active' : resolutionFilter === 'month',
+                                      'ws-mat-accent-border font-medium':resolutionFilter !== 'month'}" mat-button
+                  (click)="filterR('month')" role="button">This month</a>
+                <a href="javascript:void(0)" class="filter-option" [ngClass]="{'ws-mat-accent-border-active' : resolutionFilter === 'year',
+                                      'ws-mat-accent-border font-medium':resolutionFilter !== 'year'}" mat-button
+                  (click)="filterR('year')" role="button">This year</a>
+              </div>
+            </div>
+            <div class="flex flex-1">
+              <ws-app-count [widgetData]="{
+                              heading: 'Received',
+                              count: 42
+                            }"></ws-app-count>
+              <ws-app-count [widgetData]="{
+                              heading: 'Completed',
+                              count: 25
+                            }"></ws-app-count>
+              <ws-app-count [widgetData]="{
+                              heading: 'Pending',
+                              count: 22
+                            }"></ws-app-count>
+
+            </div>
+            <div class="flex flex-1 margin-top-s">
+              <ng-container [wsResolverWidget]="sliderData2"></ng-container>
+            </div>
+          </div>
+        </mat-card> -->
+        <!-- <mat-card class="flex flex-1 ws-mat-accent-border margin-top-m">
+          <mat-card class="flex flex-1 ws-mat-accent-border margin-right-xs flex-column">
+            <div class="flex flex-1">
+              <span class="mat-body-1">Trending comptencies</span>
+              <span class="flex-1">&nbsp;</span>
+              <span class="margin-right-s">
+                <a mat-icon-button>
+                  <ws-widget-btn-fullscreen [widgetType]="'actionButton'" [widgetSubType]="'actionButtonFullscreen'"
+                    [widgetData]="{ fsContainer: TrendC }"></ws-widget-btn-fullscreen>
+                </a>
+              </span>
+              <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+            <span class="mat-body-2 ws-mat-black60-text">Number of learners by competency</span>
+            <div #TrendC class="flex flex-1 margin-top-s">
+              <ng-container [wsResolverWidget]="sliderData3"></ng-container>
+            </div>
+          </mat-card>
+          <mat-card class="flex flex-1 ws-mat-accent-border margin-left-xs flex-column">
+            <div class="flex flex-1">
+              <span class="mat-body-1">CBP uploads</span>
+              <span class="flex-1">&nbsp;</span>
+              <span class="margin-right-s">
+                <a mat-icon-button>
+                  <ws-widget-btn-fullscreen [widgetType]="'actionButton'" [widgetSubType]="'actionButtonFullscreen'"
+                    [widgetData]="{ fsContainer: tcu }"></ws-widget-btn-fullscreen>
+                </a>
+              </span>
+              <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+            <span class="mat-body-2 ws-mat-black60-text">Trend of course uploads</span>
+            <div class="flex flex-1">
+              <ws-app-count [widgetData]="{
+                                            heading: 'Aggregate',
+                                            count: 201
+                                          }"></ws-app-count>
+            </div>
+            <div #tcu class="flex flex-1 margin-top-s">
+              <ng-container [wsResolverWidget]="sliderData4"></ng-container>
+            </div>
+          </mat-card>
+        </mat-card> -->
+        <!-- <mat-card class="flex flex-1 ws-mat-accent-border margin-top-m flex-column">
+          <div class="flex flex-1">
+            <span class="mat-body-1">Competency coverage</span>
+            <span class="flex-1">&nbsp;</span>
+            <span class="margin-right-s">
+              <a mat-icon-button>
+                <ws-widget-btn-fullscreen [widgetType]="'actionButton'" [widgetSubType]="'actionButtonFullscreen'"
+                  [widgetData]="{ fsContainer: CompCoverage }"></ws-widget-btn-fullscreen>
+              </a>
+            </span>
+            <button mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+          <span class="mat-body-2 ws-mat-black60-text">Competencies that courses on Karmayogi cover the most</span>
+          <div class="flex-1">
+            <div class="flex flex-1 flex-column margin-fix">
+              <div class="flex flex-1 filter max-height-60">
+                <a href="javascript:void(0)" class="filter-option" [ngClass]="{'ws-mat-accent-border-active' : compFilter === 'table',
+                                  'ws-mat-accent-border font-medium':compFilter !== 'table'}" mat-button
+                  (click)="filterComp('table')" role="button">Table</a>
+                <a href="javascript:void(0)" class="filter-option" [ngClass]="{'ws-mat-accent-border-active' : compFilter === 'wc',
+                                              'ws-mat-accent-border font-medium':compFilter !== 'wc'}" mat-button
+                  (click)="filterComp('wc')" role="button">World cloud</a>
+              </div>
+            </div>
+            <div #CompCoverage class="flex flex-1 margin-top-s">
+              <ng-container [wsResolverWidget]="sliderData5"></ng-container>
+            </div>
+          </div>
+        </mat-card> -->
+      </div>
+    </mat-card-content>
+    <a [routerLink]="['/app/my-dashboard']" class="flex rel-custom" routerLinkActive="router-link-active">
+      <span class="mat-subheading-2 ws-mat-default-text">Go to dashboard</span>
+      <mat-icon class="ws-mat-default-text">arrow_forward</mat-icon>
+    </a>
+  </mat-card>
+
+  <div class="bootstrap-rain margin-top-m" *ngIf="currentDashboard[0]">
+    <div class="rain-lib-container relative">
+      <lib-rain-dashboards [layoutConfig]="currentDashboard[0].visualizationDetails"
+        [chartConfig]="currentDashboard[0].chartDetails" [dashboardConfig]="dashboardList" [showFilters]="false"
+        [showWidgets]="true" [filtersConfig]="currentDashboard[0].filtersDetails"
+        [widgetConfig]="currentDashboard[0].widgetDetails" [widgetData]="currentDashboard[0].widgetData"
+        (libDashboardId)="getDashboardId($event)" [showWidgetTitle]="currentDashboard[0].showWidgetTitle"
+        [widgetTitle]="currentDashboard[0].widgetTitle" [showMessage]="currentDashboard[0].showMessage"
+        [messageType]="currentDashboard[0].messageType" [message]="currentDashboard[0].message"></lib-rain-dashboards>
+    </div>
+  </div>
+</div>
