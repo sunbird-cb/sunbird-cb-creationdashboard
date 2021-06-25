@@ -20,10 +20,10 @@ node('build-slave') {
                 commit_hash = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
                 build_tag = sh(script: "echo " + params.github_release_tag.split('/')[-1] + "_" + commit_hash + "_" + env.BUILD_NUMBER, returnStdout: true).trim()
                 echo "build_tag: " + build_tag
+		sh ("echo ${build_tag} > build_tag.txt")
 		
 		 stage('docker-build') { 
 		   sh '''
-		   "echo ${build_tag} > build_tag.txt"
 		   tag_value="$(cat build_tag.txt)"
                    echo $tag_value
                    docker build -f $dockerfile -t ${hub_org}/$docker_repo:$tag_value .
@@ -32,7 +32,6 @@ node('build-slave') {
               }      
                stage('ArchiveArtifacts') {
                    archiveArtifacts "metadata.json"		     
-		    sh ("echo ${build_tag} > build_tag.txt")
                     archiveArtifacts "build_tag.txt" 
                     currentBuild.description = "${build_tag}"
                 }
