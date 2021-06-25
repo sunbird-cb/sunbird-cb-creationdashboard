@@ -23,7 +23,7 @@ node('build-slave') {
 		
 		 stage('docker-build') { 
 		   sh '''
-		   ("echo ${build_tag} > build_tag.txt")
+		   "echo ${build_tag} > build_tag.txt"
 		   tag_value="$(cat build_tag.txt)"
                    echo $tag_value
                    docker build -f $dockerfile -t ${hub_org}/$docker_repo:$tag_value .
