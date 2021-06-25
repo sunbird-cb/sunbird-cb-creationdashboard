@@ -23,8 +23,10 @@ node('build-slave') {
 		
 		 stage('docker-build') {
                 sh '''
-                   commit-id = "echo ${build_tag}" 
-                   docker build -f $dockerfile -t ${hub_org}/$docker_repo}:$commit-id .
+                   "echo ${build_tag}" > build_tag.txt
+		   tag_value="$(cat build_tag.txt)"
+                   echo $tag_value
+                   docker build -f $dockerfile -t ${hub_org}/$docker_repo}:$tag_value .
 		   echo {\"image_name\" : \"${docker_repo}\", \"image_tag\" : \"${build_tag}\", \"node_name\" : \"$node\"} > metadata.json
                    '''
               }      
