@@ -25,11 +25,11 @@ node('build-slave') {
 
                 dir("${env.WORKSPACE}/assets") {
                 checkout scm: [$class: 'GitSCM', branches: [[name: assets_repo_branch]], extensions: [[$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]], userRemoteConfigs: [[credentialsId: asset_repo_credentials, url: assets_repo_url]]]
-                sh('ls')
+                sh('mv client-assets/assets/configurations/cbc_3000 client-assets/assets/configurations/cbc.igot-dev.in')
             }
             }
 
-             / *  stage('Build') {
+               stage('Build') {
                    env.NODE_ENV = "build"
                    print "Environment will be : ${env.NODE_ENV}"
                    sh('chmod 777 build.sh')
@@ -41,7 +41,7 @@ node('build-slave') {
                    sh ("echo ${build_tag} > build_tag.txt")
                    archiveArtifacts "build_tag.txt"
                    currentBuild.description = "${build_tag}"
-                } */
+                } 
 
         }
     }
