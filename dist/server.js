@@ -57,7 +57,7 @@ function serveAssets(hostPath) {
   app.use(
     `${hostPath}/assets`,
     // proxyCreator(express.Router(), CONSTANTS.WEB_HOST_PROXY + '/web-hosted/client-assets/dist'),
-     app.use(express.static(path.join(__dirname, `${hostPath}`, `assets`))) //  "public" off of current is root
+     express.static(path.join(__dirname, `${hostPath}`, `assets`)) //  "public" off of current is root
   )
 }
 
