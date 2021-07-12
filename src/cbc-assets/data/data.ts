@@ -581,7 +581,7 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'UIDAI',
+            headerName: 'Department of Posts',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -592,7 +592,7 @@ export const dashboardOneData: any = {
                 label: 'Header',
                 name: 'MDO',
                 drillThroughId: 'statusWAOMDOs',
-                value: 'UIDAI',
+                value: 'Department of Posts',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -1537,7 +1537,7 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'UIDAI',
+            headerName: 'Department of Posts',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -1546,7 +1546,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'MDO',
-                value: 'UIDAI',
+                value: 'Department of Posts',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -2098,7 +2098,7 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'UIDAI',
+            headerName: 'Department of Posts',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -2107,7 +2107,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'MDO',
-                value: 'UIDAI',
+                value: 'Department of Posts',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -4155,7 +4155,7 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'UIDAI',
+            headerName: 'Department of Posts',
             headerValue: 535,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
@@ -4165,7 +4165,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'MDO',
-                value: 'UIDAI',
+                value: 'Department of Posts',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -21278,7 +21278,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Post',
+                name: 'Department of Posts',
                 value: 11,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21325,7 +21325,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Post',
+                name: 'Department of Posts',
                 value: 10,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21579,7 +21579,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'ISRO',
+                name: 'Department of Posts',
                 value: 800,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21635,7 +21635,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'ISRO',
+                name: 'Department of Posts',
                 value: 600,
                 valueLabel: 'Value',
                 symbol: 'number',
