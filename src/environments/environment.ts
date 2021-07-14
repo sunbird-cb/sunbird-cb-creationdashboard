@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+debugger
 export const environment: IEnvironment = {
   production: false,
-  sitePath: 'cbc_3000',
-  karmYogiPath: 'https://igot-dev.in',
-  cbpPath: 'https://cbp.igot-dev.in/',
+  sitePath: (window as { [key: string]: any })['env']['apiUrl'] || 'default', //'cbc_3000',
+  karmYogiPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
+  cbpPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
 }
 interface IEnvironment {
   production: boolean

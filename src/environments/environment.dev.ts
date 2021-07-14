@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
-  sitePath: 'cbc.igot-dev.in',
-  karmYogiPath: 'https://igot-dev.in',
-  cbpPath: 'https://cbp.igot-dev.in',
-
+  sitePath: (window as { [key: string]: any })['env']['apiUrl'] || 'default', //'cbc_3000',
+  karmYogiPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
+  cbpPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
 }
