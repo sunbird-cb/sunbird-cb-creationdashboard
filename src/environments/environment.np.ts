@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  sitePath: 'cbc.karmayogiprod.nic.in',
-  karmYogiPath: 'https://karmayogiprod.nic.in',
-  cbpPath: 'https://cbp.karmayogiprod.nic.in',
+  sitePath: (window as { [key: string]: any })['env']['apiUrl'] || '', // 'cbc_3000',
+  karmYogiPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
+  cbpPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
 
 }
