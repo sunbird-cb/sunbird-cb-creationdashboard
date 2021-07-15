@@ -1039,7 +1039,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: true,
               insightStatus: 'up',
-              info: "Approved work allocations %"
+              info: 'Approved work allocations %',
             },
           ],
         },
