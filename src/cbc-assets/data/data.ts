@@ -78,6 +78,7 @@ export const dashboardOneData: any = {
           id: 11,
           name: 'Work allocation orders over time',
           description: 'Approved work allocation orders over time',
+          info: 'Number of positions for which a work allocation order has been approved and issued',
           dimensions: {
             height: 250,
             width: 12,
@@ -106,7 +107,8 @@ export const dashboardOneData: any = {
           id: 12,
           name: 'Status of work allocation orders (Top 10 MDOs)',
           description:
-            'Percentage of positions with approved work allocation order by MDO',
+            'Percentage of MDO positions on iGOT with approved work allocation orders',
+          info: 'Rank of MDOs with respect to percentage of positions for which a work allocation order has been approved and issued',
           dimensions: {
             height: 250,
             width: 6,
@@ -131,14 +133,6 @@ export const dashboardOneData: any = {
               filter: '',
               headers: [],
             },
-            {
-              id: 'changeWAOTop10ThisMonth',
-              name: 'This month',
-              code: '',
-              chartType: 'table_bar_large',
-              filter: '',
-              headers: [],
-            },
           ],
           drillThroughCharts: [
             {
@@ -146,6 +140,7 @@ export const dashboardOneData: any = {
               name: 'Status of work allocation orders in ISTM (by designation)',
               description:
                 'The number of positions for which draft work allocation order has been initiated.Work allocation orders in ISTM by designation',
+              info: 'Percentage of positions for which a work allocation order has been approved and issued',
               dimensions: {
                 height: 250,
                 width: 6,
@@ -172,6 +167,7 @@ export const dashboardOneData: any = {
               name: 'Status of work allocation orders across MDOs',
               description:
                 'Status of work allocation orders across relevant MDOs',
+              info: 'Percentage of positions for which a work allocation order is issued and approved over time',
               dimensions: {
                 height: 250,
                 width: 6,
@@ -199,7 +195,8 @@ export const dashboardOneData: any = {
           id: 13,
           name: 'Status of work allocation orders (Bottom 10 MDOs)',
           description:
-            'Percentage of positions with approved work allocation order by MDO',
+            'Percentage of MDO positions on iGOT with approved work allocation orders',
+          info: 'Rank of MDOs with respect to percentage of positions for which a work allocation order has been approved and issued',
           dimensions: {
             height: 250,
             width: 6,
@@ -223,14 +220,6 @@ export const dashboardOneData: any = {
               filter: '',
               headers: [],
             },
-            {
-              id: 'changeWAOTBtm10ThisMonth',
-              name: 'This month',
-              code: '',
-              chartType: 'table_bar_large',
-              filter: '',
-              headers: [],
-            },
           ],
         },
       ],
@@ -244,6 +233,7 @@ export const dashboardOneData: any = {
           name: 'Tagged roles and activities in approved work allocation orders',
           description:
             'Coverage of roles and activities  in positions with work allocation orders approved and issued',
+          info: 'Coverage of roles and activities  in positions with work allocation orders approved and issued',
           dimensions: {
             height: 250,
             width: 12,
@@ -301,6 +291,7 @@ export const dashboardOneData: any = {
           name: 'Status of work allocation orders across States',
           description:
             'Percentage of positions with approved work allocation order by State',
+          info: 'Percentage of positions for which a work allocation order is issued and approved',
           dimensions: {
             height: 250,
             width: 6,
@@ -369,6 +360,7 @@ export const dashboardOneData: any = {
               name: 'Change in work allocation orders (Top 10 MDOs) in Delhi',
               description:
                 'Percentage point change in the percentage of positions with approved work allocation order by State MDO',
+              info: 'Percentage point change (from the previous time period) in the percentage of positions for which a work allocation order has been issued and approved',
               dimensions: {
                 height: 250,
                 width: 6,
@@ -424,7 +416,8 @@ export const dashboardOneData: any = {
         filter: null,
         data: [
           {
-            headerName: '% change in WAO Approved Monthwise',
+            headerName:
+              'Percentage of positions for which work allocation order is approved/issued (over time)',
             headerValue: 535,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
@@ -535,7 +528,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'NIRDPR',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -566,7 +559,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 64.46,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -581,8 +574,8 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'Department of Posts',
-            headerValue: 309,
+            headerName: 'UIDAI',
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -592,7 +585,7 @@ export const dashboardOneData: any = {
                 label: 'Header',
                 name: 'MDO',
                 drillThroughId: 'statusWAOMDOs',
-                value: 'Department of Posts',
+                value: 'UIDAI',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -613,7 +606,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 57.05,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -629,7 +622,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'SVPNPA',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -660,7 +653,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 51.05,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -676,7 +669,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISRO',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -707,7 +700,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 50.19,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -723,7 +716,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'DoPT',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -754,7 +747,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -770,7 +763,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISTM',
-            headerValue: 309,
+            headerValue: 6,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -801,7 +794,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 48.75,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -817,7 +810,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'AYUSH',
-            headerValue: 309,
+            headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -848,7 +841,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 47.22,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -864,7 +857,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NIC',
-            headerValue: 309,
+            headerValue: 8,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -895,7 +888,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 44.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -911,7 +904,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'LBSNA',
-            headerValue: 309,
+            headerValue: 9,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -942,7 +935,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 42.5,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -958,7 +951,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'DRDO',
-            headerValue: 309,
+            headerValue: 10,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -989,7 +982,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 36.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1024,7 +1017,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'IASARI',
-            headerValue: 309,
+            headerValue: 100,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1053,7 +1046,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 10.71,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1069,7 +1062,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'IMD',
-            headerValue: 309,
+            headerValue: 99,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1098,7 +1091,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 19.57,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1114,7 +1107,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ICMR',
-            headerValue: 309,
+            headerValue: 98,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1143,7 +1136,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 24.32,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1159,7 +1152,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISI',
-            headerValue: 309,
+            headerValue: 97,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1188,7 +1181,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 35.14,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1204,7 +1197,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'MoWR',
-            headerValue: 309,
+            headerValue: 96,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1233,7 +1226,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 38.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1249,7 +1242,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NCERT',
-            headerValue: 309,
+            headerValue: 95,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1278,7 +1271,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 40.48,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1294,7 +1287,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NIUA',
-            headerValue: 309,
+            headerValue: 94,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1323,7 +1316,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 43.75,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1339,7 +1332,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NSCCL',
-            headerValue: 309,
+            headerValue: 93,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1357,7 +1350,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Total approved',
+                name: '% of WAO approved/issued',
                 value: 20,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1384,7 +1377,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NSSO',
-            headerValue: 309,
+            headerValue: 92,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1413,7 +1406,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 46.27,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1429,7 +1422,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'PWD',
-            headerValue: 309,
+            headerValue: 91,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1458,7 +1451,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: '% of WAO approved/issued',
                 value: 50.72,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1493,7 +1486,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'NIRDPR',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1522,7 +1515,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 64.46,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1537,8 +1530,8 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'Department of Posts',
-            headerValue: 309,
+            headerName: 'UIDAI',
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1546,7 +1539,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'MDO',
-                value: 'Department of Posts',
+                value: 'UIDAI',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -1567,7 +1560,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 57.05,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1583,7 +1576,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'SVPNPA',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1612,7 +1605,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 51.05,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1628,7 +1621,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISRO',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1657,7 +1650,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.19,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1673,7 +1666,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISTM',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1702,7 +1695,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1718,7 +1711,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NIC',
-            headerValue: 309,
+            headerValue: 6,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1747,7 +1740,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1763,7 +1756,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'LBSNA',
-            headerValue: 309,
+            headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1792,7 +1785,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1808,7 +1801,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'AYUSH',
-            headerValue: 309,
+            headerValue: 8,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1837,7 +1830,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1854,7 +1847,7 @@ export const dashboardOneData: any = {
 
           {
             headerName: 'DoPT',
-            headerValue: 309,
+            headerValue: 9,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1883,7 +1876,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1900,7 +1893,7 @@ export const dashboardOneData: any = {
 
           {
             headerName: 'DRDO',
-            headerValue: 309,
+            headerValue: 10,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -1929,7 +1922,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 36.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -1946,475 +1939,7 @@ export const dashboardOneData: any = {
         ],
       },
     },
-    {
-      statusInfo: {
-        statusCode: 200,
-        statusMessage: 'success',
-        errorMessage: '',
-      },
-      responseData: {
-        chartType: 'table_bar_large',
-        visualizationCode: 'changeWAOTop10ThisMonth',
-        chartFormat: null,
-        drillDownChartId: 'none',
-        filterKeys: null,
-        customData: null,
-        dates: null,
-        filter: null,
-        data: [
-          {
-            headerName: 'SVPNPA',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'SVPNPA',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 14,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 19.18,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'NIRDPR',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'NIRDPR',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 12,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 15.38,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'LBSNA',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'LSBNA',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 14,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 14.0,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'Department of Posts',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'Department of Posts',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 12,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 13.48,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'AYUSH',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'AYUSH',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 9,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 10.0,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'NIC',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'NIC',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 11,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 8.8,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'DoPT',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'DoPT',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 5,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 6.67,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'ISRO',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'ISRO',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 8,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 5.97,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'DRDO',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'DRDO',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 5,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 5.56,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'ISTM',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'ISTM',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 7,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 4.38,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-        ],
-      },
-    },
+
     {
       statusInfo: {
         statusCode: 200,
@@ -2433,7 +1958,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'IIPA',
-            headerValue: 309,
+            headerValue: 100,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -2462,7 +1987,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 45.45,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2478,7 +2003,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NACIN',
-            headerValue: 309,
+            headerValue: 99,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -2507,7 +2032,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2552,7 +2077,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2597,7 +2122,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2642,7 +2167,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 60.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2687,7 +2212,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 60.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2732,7 +2257,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 60.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2777,7 +2302,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 75.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2822,7 +2347,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 75.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2867,7 +2392,7 @@ export const dashboardOneData: any = {
               },
               {
                 label: 'Header',
-                name: 'Percentage of approval',
+                name: 'Change in % WAO approved/issued',
                 value: 100.0,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -2884,475 +2409,7 @@ export const dashboardOneData: any = {
         ],
       },
     },
-    {
-      statusInfo: {
-        statusCode: 200,
-        statusMessage: 'success',
-        errorMessage: '',
-      },
-      responseData: {
-        chartType: 'table_bar_large',
-        visualizationCode: 'changeWAOTBtm10ThisMonth',
-        chartFormat: null,
-        drillDownChartId: 'none',
-        filterKeys: null,
-        customData: null,
-        dates: null,
-        filter: null,
-        data: [
-          {
-            headerName: 'NACIN',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'NACIN',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 1,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 10.0,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'IIPA',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'IIPA',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 2,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 20.0,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'IIFT',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'IIFT',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 3,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 20.0,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'UGC',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'UGC',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 4,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 22.22,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'MoHFW',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'MoHFW',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 5,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 31.25,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'DST',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'DST',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 5,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 33.33,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'BRO',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'BRO',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 8,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 38.1,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'NHIDCL',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'NHIDCL',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 13,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 43.33,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'India Post',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'India Post',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 10,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 66.67,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-          {
-            headerName: 'UPSC',
-            headerValue: 309,
-            headerSymbol: 'number',
-            colorPaletteCode: '#7B47A4',
-            colorPaletteId: null,
-            plots: [
-              {
-                label: 'Header',
-                name: 'MDO',
-                value: 'UPSC',
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Total approved',
-                value: 20,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: false,
-                colorCode: 'one',
-              },
-              {
-                label: 'Header',
-                name: 'Percentage of approval',
-                value: 66.67,
-                valueLabel: 'Value',
-                symbol: 'number',
-                parentName: null,
-                parentLabel: null,
-                isPercentage: true,
-                colorCode: 'one',
-                showBar: true,
-              },
-            ],
-            insight: null,
-            isDecimal: null,
-          },
-        ],
-      },
-    },
+
     {
       statusInfo: {
         statusCode: 200,
@@ -3372,7 +2429,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName:
-              'Status of work allocation orders in ISTM (by designation)',
+              'Percentage of positions for which work allocation order is approved/issued',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -3652,7 +2709,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'ISTM',
-            headerValue: 535,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -3726,7 +2783,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -3736,7 +2793,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'ISRO',
-            headerValue: 535,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -3810,7 +2867,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -3820,7 +2877,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NIC',
-            headerValue: 535,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -3894,7 +2951,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -3904,7 +2961,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'DRDO',
-            headerValue: 535,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -3978,7 +3035,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -3988,7 +3045,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'LBSNA',
-            headerValue: 535,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4062,7 +3119,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4072,7 +3129,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'AYUSH',
-            headerValue: 535,
+            headerValue: 6,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4146,7 +3203,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4155,8 +3212,8 @@ export const dashboardOneData: any = {
             isDecimal: null,
           },
           {
-            headerName: 'Department of Posts',
-            headerValue: 535,
+            headerName: 'UIDAI',
+            headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4165,7 +3222,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'MDO',
-                value: 'Department of Posts',
+                value: 'UIDAI',
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -4230,7 +3287,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4240,7 +3297,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'DoPT',
-            headerValue: 535,
+            headerValue: 8,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4314,7 +3371,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4324,7 +3381,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'SVPNPA',
-            headerValue: 535,
+            headerValue: 9,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4398,7 +3455,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4408,7 +3465,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'NIRDPR',
-            headerValue: 535,
+            headerValue: 10,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4482,7 +3539,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4511,7 +3568,7 @@ export const dashboardOneData: any = {
         data: [
           {
             headerName: 'Secretary',
-            headerValue: 535,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4580,7 +3637,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4590,7 +3647,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'Joint Secretary',
-            headerValue: 535,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4659,7 +3716,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4669,7 +3726,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'Director',
-            headerValue: 535,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4738,7 +3795,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4748,7 +3805,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'Deputy Director',
-            headerValue: 535,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4817,7 +3874,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -4827,7 +3884,7 @@ export const dashboardOneData: any = {
           },
           {
             headerName: 'Section Officer',
-            headerValue: 535,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -4896,7 +3953,7 @@ export const dashboardOneData: any = {
                 symbol: 'number',
                 parentName: null,
                 parentLabel: null,
-                isPercentage: true,
+                isPercentage: false,
                 colorCode: 'three',
                 showBar: true,
               },
@@ -6167,7 +5224,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'Percentage of approval',
-                value: 12.90,
+                value: 12.9,
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -6590,7 +5647,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'Percentage of approval',
-                value: 60.00,
+                value: 60.0,
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -6656,7 +5713,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'Percentage point change',
-                value: 60.00,
+                value: 60.0,
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -6703,7 +5760,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'Percentage point change',
-                value: 52.50,
+                value: 52.5,
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -7474,7 +6531,7 @@ export const dashboardOneData: any = {
               {
                 label: 'Header',
                 name: 'Percentage point change',
-                value: 50.00,
+                value: 50.0,
                 valueLabel: 'Value',
                 symbol: 'number',
                 parentName: null,
@@ -7603,7 +6660,7 @@ export const dashboardOneData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Number of Positions',
+            headerName: 'Number of positions on platform',
             headerValue: 885,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -7613,6 +6670,7 @@ export const dashboardOneData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Number of officials on platform with unique positions',
           },
         ],
       },
@@ -7644,6 +6702,7 @@ export const dashboardOneData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'down',
+            info: 'Number of positions for which a work allocation order has been approved and issued',
           },
         ],
       },
@@ -7665,7 +6724,7 @@ export const dashboardOneData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Roles per position',
+            headerName: 'Number of roles per position',
             headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -7675,6 +6734,7 @@ export const dashboardOneData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total average roles per position in positions for which a work allocation order has been approved and issued',
           },
         ],
       },
@@ -7696,7 +6756,7 @@ export const dashboardOneData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Activities per role',
+            headerName: 'Number of activities per role',
             headerValue: 12,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -7706,6 +6766,7 @@ export const dashboardOneData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total average activities per role in positions for which a work allocation order has been approved and issued',
           },
         ],
       },
@@ -15423,7 +14484,7 @@ export const dashboardOneLastMonthData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Number of Positions',
+            headerName: 'Number of positions on platform',
             headerValue: 380,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -15433,6 +14494,7 @@ export const dashboardOneLastMonthData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Number of officials on platform with unique positions',
           },
         ],
       },
@@ -15464,6 +14526,7 @@ export const dashboardOneLastMonthData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: '',
           },
         ],
       },
@@ -15495,6 +14558,7 @@ export const dashboardOneLastMonthData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: '',
           },
         ],
       },
@@ -15529,6 +14593,7 @@ export const dashboardTwoData: any = {
           id: 11,
           name: 'Number of CBPs on iGOT',
           description: '',
+          info: 'Number of CBPs approved and published on iGOT',
           dimensions: {
             height: 250,
             width: 12,
@@ -15547,29 +14612,6 @@ export const dashboardTwoData: any = {
             },
           ],
         },
-        // {
-        //   id: 12,
-        //   name: "Content quality score (Bottom 5)",
-        //   description:
-        //     "Representation of CBP providers based on quality of CBPs (avg. CQS score ) ",
-        //   dimensions: {
-        //     height: 250,
-        //     width: 6,
-        //   },
-        //   vizType: "chart",
-        //   noUnit: true,
-        //   isCollapsible: false,
-        //   charts: [
-        //     {
-        //       id: "cqcBotmFive",
-        //       name: "Content quality score (Bottom 5)",
-        //       code: "",
-        //       chartType: "bar",
-        //       filter: "",
-        //       headers: [],
-        //     },
-        //   ],
-        // },
       ],
     },
     {
@@ -15579,7 +14621,8 @@ export const dashboardTwoData: any = {
         {
           id: 13,
           name: 'Quality and performance (Top 5 CBP providers)',
-          description: 'Top 5 CBP providers in terms of Content Quality Score	',
+          description: 'Top 5 CBP providers in terms of Content Quality Score',
+          info: 'Rank with respect to CBP Provider performance on Median Content Quality Score',
           dimensions: {
             height: 250,
             width: 6,
@@ -15613,8 +14656,7 @@ export const dashboardTwoData: any = {
             {
               id: 13.1,
               name: 'Quality of Approved CBPs in Harappa (Top 5)',
-              description:
-                'Quality of CBPs in Harappa',
+              description: 'Quality of CBPs in Harappa',
               dimensions: {
                 height: 250,
                 width: 6,
@@ -15627,8 +14669,7 @@ export const dashboardTwoData: any = {
                   id: 'qaAppAndPubCBPsHarrapa',
                   parent: 'qpTop5CBPs',
                   name: 'Quality of Approved CBPs in Harappa (Top 5)',
-                  description:
-                    'Quality of CBPs in Harappa',
+                  description: 'Quality of CBPs in Harappa',
                   code: '',
                   chartType: 'horizontal_bar',
                   filter: '',
@@ -15641,7 +14682,9 @@ export const dashboardTwoData: any = {
         {
           id: 14,
           name: 'Quality and performance of (Bottom 5 CBP providers)',
-          description: 'Bottom 5 CBP providers in terms of Content Quality Score',
+          description:
+            'Bottom 5 CBP providers in terms of Content Quality Score',
+          info: 'Rank with respect to CBP Provider performance on Median Content Quality Score',
           dimensions: {
             height: 250,
             width: 6,
@@ -15653,7 +14696,8 @@ export const dashboardTwoData: any = {
             {
               id: 'qpBtm5CBPs',
               name: 'Quality and performance',
-              description: 'Bottom 5 CBP providers in terms of Content Quality Score',
+              description:
+                'Bottom 5 CBP providers in terms of Content Quality Score',
               code: '',
               chartType: 'table_bar_large',
               filter: '',
@@ -15674,8 +14718,7 @@ export const dashboardTwoData: any = {
             {
               id: 14.1,
               name: 'Quality of Approved CBPs in CPD',
-              description:
-                'Quality of CBPs in CPD (Top CBPs)',
+              description: 'Quality of CBPs in CPD (Top CBPs)',
               dimensions: {
                 height: 250,
                 width: 6,
@@ -15688,8 +14731,7 @@ export const dashboardTwoData: any = {
                   id: 'qaAppAndPubCBPsCPD',
                   parent: 'qpBtm5CBPs',
                   name: 'Quality of Approved CBPs in CPD',
-                  description:
-                    'Quality of CBPs in CPD (Top CBPs)',
+                  description: 'Quality of CBPs in CPD (Top CBPs)',
                   code: '',
                   chartType: 'horizontal_bar',
                   filter: '',
@@ -15708,7 +14750,8 @@ export const dashboardTwoData: any = {
         {
           id: 14,
           name: 'CBP uploads',
-          description: 'Trend of CBP uploads ',
+          description: 'Trend of CBP uploads',
+          info: 'Trend of CBP uploads',
           dimensions: {
             height: 250,
             width: 6,
@@ -15732,6 +14775,7 @@ export const dashboardTwoData: any = {
           name: 'Distribution of CBPs by CQS',
           description:
             'Categorisation of all CBPs on the platform by their quality (CQS Score)',
+          info: 'Categorisation of all CBPs on the platform by their quality (CQS Score)',
           dimensions: {
             height: 250,
             width: 6,
@@ -15760,6 +14804,7 @@ export const dashboardTwoData: any = {
           id: 16,
           name: 'Status of CBP on the platform',
           description: 'Total no. of CBPs Uploaded over a period of time.',
+          info: 'Total no. of CBPs Uploaded over a period of time.',
           dimensions: {
             height: 250,
             width: 6,
@@ -15783,6 +14828,7 @@ export const dashboardTwoData: any = {
           name: 'Status of CBP on the platform',
           description:
             'Total number of CBPs in record into the stages it is in: self-certification, external review and finally published/registered on iGOT',
+          info: 'Total number of CBPs in record into the stages it is in: self-certification, external review and finally published/registered on iGOT',
           dimensions: {
             height: 250,
             width: 6,
@@ -15811,6 +14857,7 @@ export const dashboardTwoData: any = {
           id: 18,
           name: 'Status of CBP providers',
           description: 'Total number of CBPs  by CBP provider (Top 5)',
+          info: 'Total number of CBPs  by CBP provider (Top 5)',
           dimensions: {
             height: 250,
             width: 6,
@@ -15833,6 +14880,7 @@ export const dashboardTwoData: any = {
           id: 19,
           name: 'Median CQS overtime',
           description: 'Overall Median Content Quality Score over time',
+          info: 'Overall Median Content Quality Score over time',
           dimensions: {
             height: 250,
             width: 6,
@@ -15862,6 +14910,7 @@ export const dashboardTwoData: any = {
           name: 'Competency Coverage of CBPs',
           description:
             'Ranking of competency by CBP coverage (Top 5 Competency)',
+          info: 'Ranking of competency by CBP coverage (Top 5 Competency)',
           dimensions: {
             height: 250,
             width: 12,
@@ -15890,6 +14939,7 @@ export const dashboardTwoData: any = {
           id: 21,
           name: 'Competency Coverage overtime',
           description: '% of Competencies with <=1 CBP ',
+          info: '% of Competencies with <=1 CBP ',
           dimensions: {
             height: 250,
             width: 6,
@@ -16390,7 +15440,7 @@ export const dashboardTwoData: any = {
         data: [
           {
             headerName: 'Harrappa Education',
-            headerValue: 535,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16438,7 +15488,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'LBSNAA',
-            headerValue: 535,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16485,7 +15535,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Oxford Management Center',
-            headerValue: 535,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16532,7 +15582,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'UC Davis',
-            headerValue: 535,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16579,7 +15629,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'ISTM',
-            headerValue: 535,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16645,7 +15695,7 @@ export const dashboardTwoData: any = {
         data: [
           {
             headerName: 'NACIN',
-            headerValue: 535,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16692,7 +15742,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'ISRO',
-            headerValue: 535,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16739,7 +15789,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Udemy',
-            headerValue: 535,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16786,7 +15836,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'World Bank',
-            headerValue: 535,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16833,7 +15883,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'UGC',
-            headerValue: 535,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -16987,7 +16037,7 @@ export const dashboardTwoData: any = {
         data: [
           {
             headerName: 'CPD',
-            headerValue: 535,
+            headerValue: 98,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17035,7 +16085,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Global Knowledge',
-            headerValue: 535,
+            headerValue: 97,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17082,7 +16132,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'MCI',
-            headerValue: 535,
+            headerValue: 95,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17129,7 +16179,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'UNDP',
-            headerValue: 535,
+            headerValue: 94,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17176,7 +16226,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'ISTM',
-            headerValue: 535,
+            headerValue: 93,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17242,7 +16292,7 @@ export const dashboardTwoData: any = {
         data: [
           {
             headerName: 'CPD',
-            headerValue: 535,
+            headerValue: 98,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17289,7 +16339,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Global Knowledge',
-            headerValue: 535,
+            headerValue: 97,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17336,7 +16386,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'MCI',
-            headerValue: 535,
+            headerValue: 96,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17383,7 +16433,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'UNDP',
-            headerValue: 535,
+            headerValue: 95,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -17430,7 +16480,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'ISTM',
-            headerValue: 535,
+            headerValue: 94,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
             colorPaletteId: null,
@@ -18898,7 +17948,7 @@ export const dashboardTwoData: any = {
         data: [
           {
             headerName: 'Communication',
-            headerValue: 431720.3772538068,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: null,
             colorPaletteId: null,
@@ -18947,7 +17997,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Decision Making',
-            headerValue: 431720.3772538068,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: null,
             colorPaletteId: null,
@@ -18996,7 +18046,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Leadership',
-            headerValue: 431720.3772538068,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: null,
             colorPaletteId: null,
@@ -19045,7 +18095,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Planning',
-            headerValue: 431720.3772538068,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: null,
             colorPaletteId: null,
@@ -19094,7 +18144,7 @@ export const dashboardTwoData: any = {
           },
           {
             headerName: 'Project Management',
-            headerValue: 431720.3772538068,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: null,
             colorPaletteId: null,
@@ -19522,6 +18572,7 @@ export const dashboardTwoData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Number of CBPs approved and published on iGOT',
           },
         ],
       },
@@ -19553,6 +18604,7 @@ export const dashboardTwoData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Number of CBP providers approved to be a part of Mission Karmayogi',
           },
         ],
       },
@@ -19584,6 +18636,7 @@ export const dashboardTwoData: any = {
             isDecimal: false,
             isPercentage: true,
             insightStatus: 'up',
+            info: 'Percentage of approved competencies with more than 1 approved CBPs attached to them',
           },
         ],
       },
@@ -19615,6 +18668,7 @@ export const dashboardTwoData: any = {
             isDecimal: false,
             isPercentage: true,
             insightStatus: 'up',
+            info: 'Median content quality score of CBPs approved and published on iGOT',
           },
         ],
       },
@@ -19646,6 +18700,7 @@ export const dashboardTwoData: any = {
             isDecimal: false,
             isPercentage: true,
             insightStatus: 'up',
+            info: 'Median impact score of approved and published CBPs',
           },
         ],
       },
@@ -19680,6 +18735,7 @@ export const dashboardThreeData: any = {
           id: 11,
           name: 'Type of users on iGOT over time',
           description: 'New users vs Returning Users',
+          info: 'Total number of users visiting iGOT',
           dimensions: {
             height: 250,
             width: 12,
@@ -19709,6 +18765,7 @@ export const dashboardThreeData: any = {
           id: 12,
           name: 'User flow on iGOT',
           description: 'User traffic (in numbers) on iGOT Hubs',
+          info: 'User traffic on iGOT on all Hubs',
           dimensions: {
             height: 250,
             width: 6,
@@ -19732,6 +18789,7 @@ export const dashboardThreeData: any = {
           id: 13,
           name: 'Time spent on iGOT',
           description: 'Average time spent per user on iGOT Hubs',
+          info: 'Average time spent on Hubs per day',
           dimensions: {
             height: 250,
             width: 6,
@@ -19753,7 +18811,6 @@ export const dashboardThreeData: any = {
         },
       ],
     },
-
   ],
   chartDetails: [
     {
@@ -20846,6 +19903,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total Number of users registered on iGOT Platform',
           },
         ],
       },
@@ -20867,7 +19925,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Daily Active Users',
+            headerName: 'Number of daily Active Users',
             headerValue: 70,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -20877,6 +19935,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total number of unique users who open and engage with iGOT in a given day',
           },
         ],
       },
@@ -20898,7 +19957,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Weekly Active Users',
+            headerName: 'Number of weekly Active Users',
             headerValue: 175,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -20908,6 +19967,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total number of unique users who open and engage with iGOT in a given week',
           },
         ],
       },
@@ -20929,7 +19989,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Monthly Active Users',
+            headerName: 'Number of monthly active users',
             headerValue: 205,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -20939,6 +19999,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total number of unique users who open and engage with iGOT in a given month',
           },
         ],
       },
@@ -20960,7 +20021,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Time spent on platform',
+            headerName: 'Time spent on iGOT during each log-in',
             headerValue: '50 mins',
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -20970,6 +20031,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Median time spent by user during each log-in session',
           },
         ],
       },
@@ -21001,6 +20063,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Median time spent by user during each log-in session on Learning Hub',
           },
         ],
       },
@@ -21022,7 +20085,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'No. of courses enrolled per user',
+            headerName: 'Courses enrolled per user',
             headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -21032,6 +20095,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Median Number of courses enrolled per user',
           },
         ],
       },
@@ -21053,7 +20117,7 @@ export const dashboardThreeData: any = {
         filter: null,
         data: [
           {
-            headerName: 'No. of courses completed per user',
+            headerName: 'Courses completed per user',
             headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -21063,6 +20127,7 @@ export const dashboardThreeData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Median Number of courses completed per user',
           },
         ],
       },
@@ -21097,6 +20162,7 @@ export const dashboardFourData: any = {
           id: 11,
           name: 'Status of Work Allocation Orders (Top 5)',
           description: 'Status of work orders issued and approved',
+          info: 'Status of work orders issued and approved',
           dimensions: {
             height: 250,
             width: 6,
@@ -21119,6 +20185,7 @@ export const dashboardFourData: any = {
           id: 12,
           name: 'Status of Work Allocation Orders (Bottom 5)',
           description: 'Status of work orders issued and approved',
+          info: 'Status of work orders issued and approved',
           dimensions: {
             height: 250,
             width: 6,
@@ -21147,6 +20214,7 @@ export const dashboardFourData: any = {
           name: 'Overall Work Allocation Status',
           description:
             'Overall status of work orders approved, pending and rejected',
+          info: 'Overall status of work orders approved, pending and rejected',
           dimensions: {
             height: 250,
             width: 6,
@@ -21170,6 +20238,7 @@ export const dashboardFourData: any = {
           name: 'Status of Competencies(Top 5)',
           description:
             'Status of submitted competencies and approved competencies by MDO (Top 5 ). Ranking as per approved competencies',
+          info: 'Status of submitted competencies and approved competencies by MDO (Top 5 ). Ranking as per approved competencies',
           dimensions: {
             height: 250,
             width: 6,
@@ -21199,6 +20268,7 @@ export const dashboardFourData: any = {
           name: 'Status of Competencies(Bottom 5)',
           description:
             'Status of submitted competencies and approved competencies by MDO (Bottom 5 ). Ranking as per approved competencies',
+          info: 'Status of submitted competencies and approved competencies by MDO (Bottom 5 ). Ranking as per approved competencies',
           dimensions: {
             height: 250,
             width: 6,
@@ -21222,6 +20292,7 @@ export const dashboardFourData: any = {
           name: 'Status of Competencies Approved- Overtime',
           description:
             'Change in competencies approved over time. Gap in approved vs submitted',
+          info: 'Change in competencies approved over time. Gap in approved vs submitted',
           dimensions: {
             height: 250,
             width: 6,
@@ -21278,7 +20349,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Posts',
+                name: 'Department of Post',
                 value: 11,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21325,7 +20396,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Posts',
+                name: 'Department of Post',
                 value: 10,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21579,7 +20650,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Posts',
+                name: 'ISRO',
                 value: 800,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -21635,7 +20706,7 @@ export const dashboardFourData: any = {
               },
               {
                 label: 'Header',
-                name: 'Department of Posts',
+                name: 'ISRO',
                 value: 600,
                 valueLabel: 'Value',
                 symbol: 'number',
@@ -22029,7 +21100,7 @@ export const dashboardFourData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Number of positions',
+            headerName: 'Overall positions',
             headerValue: 85,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -22039,6 +21110,7 @@ export const dashboardFourData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Number of positions',
           },
         ],
       },
@@ -22060,7 +21132,7 @@ export const dashboardFourData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Work order issued',
+            headerName: 'Number of work order issued',
             headerValue: 210,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -22070,6 +21142,7 @@ export const dashboardFourData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'down',
+            info: 'Work order issued',
           },
         ],
       },
@@ -22091,7 +21164,7 @@ export const dashboardFourData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Work order approved',
+            headerName: 'Number of work order approved',
             headerValue: 185,
             headerSymbol: 'number',
             colorPaletteCode: null,
@@ -22101,6 +21174,7 @@ export const dashboardFourData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Work order approved',
           },
         ],
       },
@@ -22132,6 +21206,7 @@ export const dashboardFourData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Submitted Competencies',
           },
         ],
       },
@@ -22163,6 +21238,7 @@ export const dashboardFourData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'down',
+            info: 'Approved Competencies',
           },
         ],
       },
@@ -22638,6 +21714,7 @@ export const dashboardSixData: any = {
           id: 60,
           name: 'Time taken to decide status of competency',
           description: '',
+          info: 'Average number of days taken by review board to decide the status of submitted competency',
           dimensions: {
             height: 250,
             width: 6,
@@ -22660,6 +21737,7 @@ export const dashboardSixData: any = {
           id: 61,
           name: 'Status of competencies over time',
           description: '',
+          info: 'Number of competencies submitted and approved to review board',
           dimensions: {
             height: 250,
             width: 6,
@@ -22687,6 +21765,7 @@ export const dashboardSixData: any = {
           id: 62,
           name: 'Status of competencies (Top 5 MDOs)',
           description: '',
+          info: ' Rank of MDOs with respect to Percentage of competencies approved by the review board',
           dimensions: {
             height: 250,
             width: 6,
@@ -22697,7 +21776,7 @@ export const dashboardSixData: any = {
           charts: [
             {
               id: 'statusCompetTop5',
-              name: 'Status of competencies',
+              name: 'All time',
               code: '',
               chartType: 'horizontal_bar',
               filter: '',
@@ -22743,6 +21822,7 @@ export const dashboardSixData: any = {
           id: 63,
           name: 'Status of competencies (Bottom 5 MDOs)',
           description: '',
+          info: 'Rank of MDOs with respect to Percentage of competencies approved by the review board',
           dimensions: {
             height: 250,
             width: 6,
@@ -22753,7 +21833,7 @@ export const dashboardSixData: any = {
           charts: [
             {
               id: 'statusCompetBtm5',
-              name: 'Status of competencies',
+              name: 'All time',
               code: '',
               chartType: 'horizontal_bar',
               filter: '',
@@ -22805,6 +21885,7 @@ export const dashboardSixData: any = {
           id: 64,
           name: 'Tagged competencies in approved work allocation orders',
           description: '',
+          info: 'Coverage of roles and activities  in positions with work allocation orders approved and issued',
           dimensions: {
             height: 250,
             width: 12,
@@ -22870,62 +21951,6 @@ export const dashboardSixData: any = {
             },
           ],
         },
-        // {
-        //   id: 65,
-        //   name: "Status of competencies (Bottom 5 MDOs)",
-        //   description: "",
-        //   dimensions: {
-        //     height: 250,
-        //     width: 6,
-        //   },
-        //   vizType: "chart",
-        //   noUnit: true,
-        //   isCollapsible: true,
-        //   charts: [
-        //     {
-        //       id: "statusCompetBtm5",
-        //       name: "Status of competencies",
-        //       code: "",
-        //       chartType: "horizontal_bar",
-        //       filter: "",
-        //       headers: [],
-        //     },
-        //     {
-        //       id: "changeApprovedCompetBtm5",
-        //       name: "Change in approved competencies",
-        //       code: "",
-        //       chartType: "horizontal_bar",
-        //       filter: "",
-        //       headers: [],
-        //     },
-        //   ],
-        //   drillThroughCharts: [
-        //     {
-        //       id: 65.1,
-        //       name: "Status of competencies in MHRD		",
-        //       description: "",
-        //       dimensions: {
-        //         height: 250,
-        //         width: 6,
-        //       },
-        //       vizType: "chart",
-        //       noUnit: true,
-        //       isCollapsible: false,
-        //       charts: [
-        //         {
-        //           id: "statusCompetBtm5MHRD",
-        //           parent: "statusCompetBtm5",
-        //           name: "Status of competencies in MHRD",
-        //           description: "",
-        //           code: "",
-        //           chartType: "horizontal_stackedbar",
-        //           filter: "",
-        //           headers: [],
-        //         },
-        //       ],
-        //     },
-        //   ],
-        // },
       ],
     },
   ],
@@ -22947,7 +21972,8 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Time taken to decide status of competency',
+            headerName:
+              'Average number of days taken to decide the status of competency',
             headerValue: 535,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
@@ -23037,7 +22063,7 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: '# Competencies submitted to Review Board',
+            headerName: '# competencies submitted',
             headerValue: 535,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
@@ -23118,7 +22144,7 @@ export const dashboardSixData: any = {
             isDecimal: null,
           },
           {
-            headerName: '# Competencies Approved by review board',
+            headerName: '# competencies approved',
             headerValue: 535,
             headerSymbol: 'number',
             colorPaletteCode: '#F58834',
@@ -23218,7 +22244,7 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Status of competencies (Top 5 MDOs)',
+            headerName: '% of competencies approved',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -23311,7 +22337,7 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Status of competencies (Bottom 5 MDOs)',
+            headerName: '% of competencies approved',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -23928,7 +22954,7 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Change in approved competencies (Top 5 MDOs) in %',
+            headerName: 'Change in % of competencies approved',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -24016,7 +23042,7 @@ export const dashboardSixData: any = {
         filter: null,
         data: [
           {
-            headerName: 'Change in approved competencies (Bottom 5 MDOs) in %',
+            headerName: 'Change in % of competencies approved',
             headerValue: 309,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
@@ -24105,7 +23131,7 @@ export const dashboardSixData: any = {
         data: [
           {
             headerName: 'LBSNAA',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24173,7 +23199,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'NIC',
-            headerValue: 309,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24241,7 +23267,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoRD',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24309,7 +23335,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoD',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24377,7 +23403,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoAG',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24464,7 +23490,7 @@ export const dashboardSixData: any = {
         data: [
           {
             headerName: 'LBSNAA',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24532,7 +23558,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'NIC',
-            headerValue: 309,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24600,7 +23626,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoRD',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24668,7 +23694,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoD',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24736,7 +23762,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'MoAG',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24823,7 +23849,7 @@ export const dashboardSixData: any = {
         data: [
           {
             headerName: 'Secretary',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24889,7 +23915,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Additional Secretary',
-            headerValue: 309,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -24955,7 +23981,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Joint Secretary',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25021,7 +24047,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Director',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25087,7 +24113,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Deputy Director',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25153,7 +24179,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Accountant',
-            headerValue: 309,
+            headerValue: 6,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25219,7 +24245,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Section Officer',
-            headerValue: 309,
+            headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25285,7 +24311,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Assitant Section Officer',
-            headerValue: 309,
+            headerValue: 8,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25351,7 +24377,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Senior PPS',
-            headerValue: 309,
+            headerValue: 9,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25417,7 +24443,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'PPS',
-            headerValue: 309,
+            headerValue: 10,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25502,7 +24528,7 @@ export const dashboardSixData: any = {
         data: [
           {
             headerName: 'Secretary',
-            headerValue: 309,
+            headerValue: 1,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25568,7 +24594,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Additional Secretary',
-            headerValue: 309,
+            headerValue: 2,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25634,7 +24660,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Joint Secretary',
-            headerValue: 309,
+            headerValue: 3,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25700,7 +24726,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Director',
-            headerValue: 309,
+            headerValue: 4,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25766,7 +24792,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Deputy Director',
-            headerValue: 309,
+            headerValue: 5,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25832,7 +24858,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Accountant',
-            headerValue: 309,
+            headerValue: 6,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25898,7 +24924,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Section Officer',
-            headerValue: 309,
+            headerValue: 7,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -25964,7 +24990,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Assitant Section Officer',
-            headerValue: 309,
+            headerValue: 8,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -26030,7 +25056,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'Senior PPS',
-            headerValue: 309,
+            headerValue: 9,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -26096,7 +25122,7 @@ export const dashboardSixData: any = {
           },
           {
             headerName: 'PPS',
-            headerValue: 309,
+            headerValue: 10,
             headerSymbol: 'number',
             colorPaletteCode: '#7B47A4',
             colorPaletteId: null,
@@ -26192,6 +25218,7 @@ export const dashboardSixData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Absolute change in the number of competencies submitted to review board (compared to previous time period)',
           },
         ],
       },
@@ -26223,6 +25250,7 @@ export const dashboardSixData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Absolute change in the number of competencies approved by review board (compared to previous time period)',
           },
         ],
       },
@@ -26254,6 +25282,7 @@ export const dashboardSixData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Absolute change in the number of competencies submitted and pending with the review board (compared to previous time period)',
           },
         ],
       },
@@ -26285,6 +25314,7 @@ export const dashboardSixData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Absolute change in the number of competencies rejected by the review board (compared to previous time period)',
           },
         ],
       },
@@ -26316,6 +25346,7 @@ export const dashboardSixData: any = {
             isDecimal: false,
             isPercentage: false,
             insightStatus: 'up',
+            info: 'Total average competencies per role in positions with approved work allocation order',
           },
         ],
       },
