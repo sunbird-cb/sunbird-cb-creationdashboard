@@ -53,6 +53,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
             id: 23,
             name: 'Status of work allocation orders (top 5)',
             description: 'Percentage of approved work allocation orders by MDO',
+            info: 'Percentage of approved work allocation orders by MDO',
             dimensions: {
               height: 250,
               width: 6,
@@ -74,6 +75,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
             id: 24,
             name: 'Status of work allocation orders (bottom 5)',
             description: 'Percentage of approved work allocation orders by MDO',
+            info: 'Percentage of approved work allocation orders by MDO',
             dimensions: {
               height: 250,
               width: 6,
@@ -101,6 +103,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
             id: 25,
             name: 'Content quality score (Top 5)',
             description: 'Representation of CBP providers based on quality of CBPs (avg. CQS score ) ',
+            info: 'Representation of CBP providers based on quality of CBPs (avg. CQS score ) ',
             dimensions: {
               height: 250,
               width: 6,
@@ -122,6 +125,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
             id: 26,
             name: 'Content quality score (Bottom 5)',
             description: 'Representation of CBP providers based on quality of CBPs (avg. CQS score ) ',
+            info: 'Representation of CBP providers based on quality of CBPs (avg. CQS score ) ',
             dimensions: {
               height: 250,
               width: 6,
@@ -149,6 +153,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
             id: 27,
             name: 'Platform usage trend',
             description: 'Time spent on the platform',
+            info: 'Time spent on the platform',
             dimensions: {
               height: 250,
               width: 12,
@@ -1034,6 +1039,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: true,
               insightStatus: 'up',
+              info: "Approved work allocations %"
             },
           ],
         },
@@ -1065,6 +1071,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: false,
               insightStatus: 'up',
+              info: 'Approved work allocations',
             },
           ],
         },
@@ -1096,6 +1103,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: false,
               insightStatus: 'down',
+              info: 'Average content quality score',
             },
           ],
         },
@@ -1127,6 +1135,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: false,
               insightStatus: 'up',
+              info: 'Platform engagement',
             },
           ],
         },
@@ -1158,6 +1167,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
               isDecimal: false,
               isPercentage: false,
               insightStatus: 'down',
+              info: 'New users onboarded',
             },
           ],
         },
