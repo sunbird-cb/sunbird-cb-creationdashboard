@@ -3,5 +3,4 @@ export const environment = {
   sitePath: (window as { [key: string]: any })['env']['sitePath'] || '', // 'cbc_3000',
   karmYogiPath: (window as { [key: string]: any })['env']['karmYogiPath'] || '',
   cbpPath: (window as { [key: string]: any })['env']['cbpPath'] || '',
-
 }
