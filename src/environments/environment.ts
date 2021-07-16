@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment: IEnvironment = {
   production: false,
-  sitePath: (window as { [key: string]: any })['env']['apiUrl'] || 'default', // 'cbc_3000',
-  karmYogiPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
-  cbpPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
+  sitePath: (window as { [key: string]: any })['env']['sitePath'] || '', // 'cbc_3000',
+  karmYogiPath: (window as { [key: string]: any })['env']['karmYogiPath'] || '',
+  cbpPath: (window as { [key: string]: any })['env']['cbpPath'] || '',
 }
 interface IEnvironment {
   production: boolean
