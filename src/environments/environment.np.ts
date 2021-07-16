@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
-  sitePath: (window as { [key: string]: any })['env']['apiUrl'] || '', // 'cbc_3000',
-  karmYogiPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
-  cbpPath: (window as { [key: string]: any })['env']['apiUrl'] || '',
-
+  sitePath: (window as { [key: string]: any })['env']['sitePath'] || '', // 'cbc_3000',
+  karmYogiPath: (window as { [key: string]: any })['env']['karmYogiPath'] || '',
+  cbpPath: (window as { [key: string]: any })['env']['cbpPath'] || '',
 }
