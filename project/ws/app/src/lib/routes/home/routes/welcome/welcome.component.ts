@@ -4,7 +4,6 @@ import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewEncapsulation 
 /* tslint:disable */
 import _ from 'lodash'
 import { environment } from '../../../../../../../../../src/environments/environment'
-import { ProfileV2Service } from '../../services/home.servive'
 import {
   dashboardListData,
 } from "../../../../../../../../../src/cbc-assets/data/data"
@@ -1176,8 +1175,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
     ],
   }
 
-  constructor(@Inject(DOCUMENT) private document: Document,
-    private activatedRoute: ActivatedRoute) {
+  constructor(@Inject(DOCUMENT) private document: Document, private activatedRoute: ActivatedRoute) {
     this.sliderData1 = {
       widgetType: 'slider',
       widgetSubType: 'sliderBanners',
@@ -1227,7 +1225,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
         if (objVal === 'CONTENT_CREATOR' || objVal === 'EDITOR' || objVal === 'PUBLISHER' || objVal === 'REVIEWER') {
           this.showCBPLink = true
         }
-        if (objVal === 'Member') {
+        if (objVal === 'MEMBER') {
           this.showKarmayogiLink = true
         }
       })
