@@ -48,8 +48,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   constructor(private valueSvc: ValueService, private router: Router, private activeRoute: ActivatedRoute) {
 
-    if (this.activeRoute.snapshot.data.userRoles) {
-      this.myRoles = this.activeRoute.snapshot.data.userRoles
+    if (this.activeRoute.snapshot.data && this.activeRoute.snapshot.data.configService) {
+      this.myRoles = this.activeRoute.snapshot.data.configService.userRoles
     }
     this.router.events.subscribe((event: Event) => {
 
@@ -59,19 +59,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.bindUrl(event.urlAfterRedirects.replace('/app/home/', ''))
         // this.widgetData = this.activeRoute.snapshot.data &&
         //   this.activeRoute.snapshot.data.pageData.data.menus || []
-        if (this.activeRoute.snapshot.data.department.data) {
+        const userConfig = this.activeRoute.snapshot.data && this.activeRoute.snapshot.data.configService
+        if (userConfig && userConfig.userProfile && userConfig.userProfile.userId) {
           const leftData = this.activeRoute.snapshot.data.pageData.data.menus
           _.set(leftData, 'widgetData.logo', true)
-          _.set(leftData, 'widgetData.logoPath', _.get(this.activeRoute, 'snapshot.data.department.data.logo'))
-          _.set(leftData, 'widgetData.name', _.get(this.activeRoute, 'snapshot.data.department.data.deptName'))
+          _.set(leftData, 'widgetData.logoPath', _.get(userConfig, 'unMappedUser.rootOrg.imgUrl'))
+          _.set(leftData, 'widgetData.name', _.get(userConfig, 'unMappedUser.rootOrg.orgName'))
           _.set(leftData, 'widgetData.userRoles', this.myRoles)
           this.widgetData = leftData
         } else {
           this.widgetData = this.activeRoute.snapshot.data.pageData.data.menus
         }
 
-        this.department = this.activeRoute.snapshot.data.department.data
-        this.departmentName = this.department ? this.department.deptName : ''
+        this.department = this.activeRoute.snapshot.data.configService.unMappedUser.rootOrg
+        this.departmentName = this.department ? this.department.orgName : ''
       }
 
       if (event instanceof NavigationError) {

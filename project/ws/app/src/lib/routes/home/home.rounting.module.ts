@@ -16,6 +16,7 @@ import { AllContentComponent } from './routes/my-content/components/all-content/
 import { ComingSoonComponent } from './routes/coming-soon/coming-soon.component'
 import { WelcomeComponent } from './routes/welcome/welcome.component'
 import { UserRoleResolve } from './resolvers/userrole-resolve'
+import { ConfigResolveService } from './resolvers/config-resolve.service'
 // import { PageResolve } from '@sunbird-cb/utils'
 const routes: Routes = [
   {
@@ -27,8 +28,9 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     resolve: {
-      department: DepartmentResolve,
-      userRoles: UserRoleResolve,
+      // department: DepartmentResolve,
+      // userRoles: UserRoleResolve,
+      configService: ConfigResolveService,
     },
     children: [
       {
@@ -78,7 +80,7 @@ const routes: Routes = [
         data: { load: ['ordinals', 'ckeditor', 'meta'] },
         resolve: {
           script: InitResolver,
-          departmentData: DepartmentResolver, // comment for sunbird BE to work should be removed
+          // departmentData: DepartmentResolver, // comment for sunbird BE to work should be removed
         },
       },
     ],
@@ -103,6 +105,7 @@ const routes: Routes = [
     InitResolver,
     DepartmentResolver,
     UserRoleResolve,
+    ConfigResolveService,
   ],
 })
 export class HomeRoutingModule { }

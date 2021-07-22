@@ -29,10 +29,10 @@ export class ProfileV2Service {
   fetchPost(request: any): Observable<any> {
     return this.http.post<any>(API_END_POINTS.SOCIAL_VIEW_CONVERSATION, request)
   }
-  getMyDepartment(): Observable<any> {
-    return this.http.get<any>(`${API_END_POINTS.GET_MY_DEPARTMENT}`)
-    // return EMPTY
-  }
+  // getMyDepartment(): Observable<any> {
+  //   return this.http.get<any>(`${API_END_POINTS.GET_MY_DEPARTMENT}`)
+  //   // return EMPTY
+  // }
   getUserDetails(): Observable<any> {
     return this.http.get<any>(`${API_END_POINTS.GET_USER_DETAILS}`)
   }
