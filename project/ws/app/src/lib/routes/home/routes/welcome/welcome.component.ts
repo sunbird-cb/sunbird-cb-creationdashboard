@@ -4,10 +4,10 @@ import { AfterViewInit, Component, Inject, OnDestroy, OnInit, ViewEncapsulation 
 /* tslint:disable */
 import _ from 'lodash'
 import { environment } from '../../../../../../../../../src/environments/environment'
-import { ProfileV2Service } from '../../services/home.servive'
 import {
   dashboardListData,
 } from "../../../../../../../../../src/cbc-assets/data/data"
+import { ActivatedRoute } from '@angular/router'
 /* tslint:enable */
 
 @Component({
@@ -28,7 +28,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
   compFilter = 'table'
   showCBPLink = false
   showKarmayogiLink = false
-
+  config!: any
   selectedDashboardId = ''
 
   dashboardList = dashboardListData
@@ -1175,7 +1175,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
     ],
   }
 
-  constructor(@Inject(DOCUMENT) private document: Document, private homeResolver: ProfileV2Service) {
+  constructor(@Inject(DOCUMENT) private document: Document, private activatedRoute: ActivatedRoute) {
     this.sliderData1 = {
       widgetType: 'slider',
       widgetSubType: 'sliderBanners',
@@ -1195,6 +1195,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
         },
       ],
     }
+    this.config = this.activatedRoute.parent && this.activatedRoute.parent.snapshot.data.configService
   }
   filterR(type: string) {
     this.resolutionFilter = type
@@ -1207,7 +1208,6 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngOnInit() {
     this.getUserDetails()
-    this.fetchRoles()
     this.selectDashbord()
   }
 
@@ -1219,30 +1219,17 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getUserDetails() {
-    this.homeResolver.getUserDetails().subscribe((res: any) => {
-      if (res.roles && res.roles.length > 0) {
-        Object.keys(res.roles).forEach((key: any) => {
-          const objVal = res.roles[key]
-          if (objVal === 'CONTENT_CREATOR' || objVal === 'EDITOR' || objVal === 'PUBLISHER' || objVal === 'REVIEWER') {
-            this.showCBPLink = true
-          }
-          if (objVal === 'Member') {
-            this.showKarmayogiLink = true
-          }
-        })
-      }
-    })
-  }
-  fetchRoles() {
-    const rolesAndAccessData: any[] = []
-    this.homeResolver.getMyDepartment().subscribe((roles: any) => {
-      roles.rolesInfo.forEach((role: { roleName: string }) => {
-        rolesAndAccessData.push({
-          role: role.roleName,
-          count: roles.noOfUsers,
-        })
+    if (this.config.userRoles && this.config.userRoles.size > 0) {
+      this.config.userRoles.forEach((key: any) => {
+        const objVal = (key || 'public').toUpperCase()
+        if (objVal === 'CONTENT_CREATOR' || objVal === 'EDITOR' || objVal === 'PUBLISHER' || objVal === 'REVIEWER') {
+          this.showCBPLink = true
+        }
+        if (objVal === 'MEMBER') {
+          this.showKarmayogiLink = true
+        }
       })
-    })
+    }
   }
 
   openky() {

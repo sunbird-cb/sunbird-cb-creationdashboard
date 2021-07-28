@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { Subscription } from 'rxjs'
 import { MyContentService } from '../../services/my-content.service'
 import { map } from 'rxjs/operators'
-import { ConfigurationsService, PipeDurationTransformPipe, ValueService } from '@sunbird-cb/utils'
+import { PipeDurationTransformPipe, ValueService } from '@sunbird-cb/utils'
 
 /* tslint:disable */
 import _ from 'lodash'
@@ -72,6 +72,7 @@ export class AllContentComponent implements OnInit, OnDestroy {
   public screenSizeIsLtMedium = false
   leftmenues!: ILeftMenu
   public filterMenuItems: any = []
+  configService!: any
   /* tslint:disable */
   resourses: any
   dataSource: any
@@ -98,14 +99,15 @@ export class AllContentComponent implements OnInit, OnDestroy {
     // private authInitService: AuthInitService,
     // private durationPipe: PipeDurationTransformPipe,
     private valueSvc: ValueService,
-    private configService: ConfigurationsService,
   ) {
-
+    this.configService = this.activatedRoute.parent
+      && this.activatedRoute.parent.snapshot.data
+      && this.activatedRoute.parent.snapshot.data.configService
     if (this.configService.userRoles) {
       this.myRoles = this.configService.userRoles
     }
-    if (this.activatedRoute.snapshot.data.departmentData) {
-      this.departmentData = this.activatedRoute.snapshot.data.departmentData
+    if (this.configService) {
+      this.departmentData = this.configService.unMappedUser.rootOrg
     }
     this.filterMenuTreeControl = new FlatTreeControl<IMenuFlatNode>(
       node => node.levels,

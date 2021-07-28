@@ -21,6 +21,7 @@ export class DepartmentResolve
       catchError(() => {
         this.router.navigate(['error-access-forbidden'])
         this.authSvc.logout()
+        this.router.navigate(['apis', 'reset'])
         return EMPTY
       }))
   }
