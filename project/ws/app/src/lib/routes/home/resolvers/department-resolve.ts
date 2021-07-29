@@ -19,9 +19,9 @@ export class DepartmentResolve
     return this.profileService.getMyDepartment().pipe(
       map(data => ({ data, error: null })),
       catchError(() => {
-        this.router.navigate(['error-access-forbidden'])
-        this.authSvc.logout()
-        this.router.navigate(['apis', 'reset'])
+        // this.router.navigate(['error-access-forbidden'])
+        // this.authSvc.logout()
+        // this.router.navigate(['apis', 'reset'])
         return EMPTY
       }))
   }

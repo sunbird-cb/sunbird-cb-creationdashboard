@@ -21,8 +21,8 @@ export class DepartmentResolver
     return this.apiService.get(GET_MY_DEPARTMENT).pipe(
       map(data => ({ data, error: null })),
       catchError(() => {
-        this.router.navigate(['error-access-forbidden'])
-        this.authSvc.logout()
+        // this.router.navigate(['error-access-forbidden'])
+        // this.authSvc.logout()
         return EMPTY
       })
     )
