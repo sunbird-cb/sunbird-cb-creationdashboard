@@ -1,4 +1,4 @@
-import { DirectoryService } from './../directory/directory.services'
+
 import { Component, OnInit, Input } from '@angular/core'
 import { FormGroup, FormControl } from '@angular/forms'
 import { MatDialog, MatSnackBar } from '@angular/material'
@@ -12,6 +12,7 @@ import { ValueService } from '@sunbird-cb/utils'
 import { NsWidgetResolver } from '@sunbird-cb/resolver'
 import { ILeftMenu } from '@sunbird-cb/collection'
 import { map } from 'rxjs/operators'
+import { DirectoryService } from '../my-content/services/directory.services'
 interface IUser { userId: string, fullName: string; email: string; role: string }
 @Component({
   selector: 'ws-app-create-mdo',

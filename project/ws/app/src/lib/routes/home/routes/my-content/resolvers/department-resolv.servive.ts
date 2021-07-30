@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core'
-import { Resolve, Router } from '@angular/router'
+import {
+  Resolve,
+  // Router
+} from '@angular/router'
 import { EMPTY, Observable } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 import { IDepartment } from '../interface/department'
-import { AuthKeycloakService, IResolveResponse } from '@sunbird-cb/utils'
+import {
+  // AuthKeycloakService,
+  IResolveResponse,
+} from '@sunbird-cb/utils'
 import { ApiService } from '../../../services/api.service'
 const GET_MY_DEPARTMENT = '/apis/protected/v8/portal/cbc/mydepartment'
 
@@ -13,7 +19,7 @@ export class DepartmentResolver
 
   constructor(
     private apiService: ApiService,
-    private router: Router, private authSvc: AuthKeycloakService
+    // private router: Router, private authSvc: AuthKeycloakService
   ) {
   }
 
