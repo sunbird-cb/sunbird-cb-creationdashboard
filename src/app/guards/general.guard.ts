@@ -8,7 +8,6 @@ import {
   UrlTree,
 } from '@angular/router'
 import { ConfigurationsService, AuthKeycloakService } from '@sunbird-cb/utils'
-import { environment } from 'src/environments/environment'
 // tslint:disable-next-line
 import _ from 'lodash'
 @Injectable({
@@ -69,18 +68,18 @@ export class GeneralGuard implements CanActivate {
     //   }
     // }
 
-    // if Invalid Role
-    if (
-      state.url &&
-      !state.url.includes('/app/setup/') &&
-      !state.url.includes('/app/tnc') &&
-      !state.url.includes('/app/home')
-    ) {
-      if (!this.hasRole(environment.portalRoles)) {
-        this.authSvc.logout()
-        return false
-      }
-    }
+    // if Invalid Role checked in init.service
+    // if (
+    //   state.url &&
+    //   // !state.url.includes('/app/setup/') &&
+    //   !(state.url.includes('/app/tnc') ||
+    //     state.url.includes('/app/setup/'))
+    // ) {
+    //   if (!this.hasRole(environment.portalRoles)) {
+    //     this.authSvc.logout()
+    //     return false
+    //   }
+    // }
     // If invalid user
     if (
       this.configSvc.userProfile === null &&
@@ -97,7 +96,8 @@ export class GeneralGuard implements CanActivate {
         state.url &&
         !state.url.includes('/app/setup/') &&
         !state.url.includes('/app/tnc') &&
-        !state.url.includes('/page/home')
+        !state.url.includes('/')
+        // !state.url.includes('/page/home')
       ) {
         this.configSvc.userUrl = state.url
       }
