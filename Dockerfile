@@ -7,7 +7,7 @@ RUN yarn && yarn add moment && yarn add vis-util && npm run build-dev --prod --b
 RUN npm run compress:brotli
 
 WORKDIR /app/dist
-COPY assets/client-assets www/en/
+COPY assets/CBC/client-assets/dist www/en/assets
 RUN npm install --production
 EXPOSE 3004
 
