@@ -1,6 +1,7 @@
-import { DirectoryService } from './../../../home/routes/directory/directory.services'
+
 import { AfterViewInit, Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
+import { DirectoryService } from '../../../home/routes/my-content/services/directory.services'
 // import { RolesAccessService } from '../../services/roles-access.service'
 @Component({
   selector: 'ws-app-roles-access',
