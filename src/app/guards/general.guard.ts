@@ -72,9 +72,9 @@ export class GeneralGuard implements CanActivate {
     // if Invalid Role
     if (
       state.url &&
-      !state.url.includes('/app/setup/') &&
-      !state.url.includes('/app/tnc') &&
-      !state.url.includes('/app/home')
+      // !state.url.includes('/app/setup/') &&
+      !(state.url.includes('/app/tnc') ||
+        state.url.includes('/app/setup/'))
     ) {
       if (!this.hasRole(environment.portalRoles)) {
         this.authSvc.logout()
@@ -97,7 +97,8 @@ export class GeneralGuard implements CanActivate {
         state.url &&
         !state.url.includes('/app/setup/') &&
         !state.url.includes('/app/tnc') &&
-        !state.url.includes('/page/home')
+        !state.url.includes('/')
+        // !state.url.includes('/page/home')
       ) {
         this.configSvc.userUrl = state.url
       }
