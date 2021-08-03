@@ -11,7 +11,7 @@ const API_END_POINTS = {
   SOCIAL_VIEW_CONVERSATION: `${PROTECTED_SLAG_V8}/social/post/viewConversation`,
   GET_MY_DEPARTMENT: '/apis/protected/v8/portal/cbc/mydepartment?allUsers=true',
   GET_USER_DETAILS: `/apis/protected/v8/user/details?ts='${Date.now()}`,
-  GET_USER_DETAILS_PROFILE: '/apis/proxies/v8/api/user/v2/read'
+  GET_USER_DETAILS_PROFILE: '/apis/proxies/v8/api/user/v2/read',
 }
 
 @Injectable({

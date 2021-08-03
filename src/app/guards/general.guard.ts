@@ -70,7 +70,6 @@ export class GeneralGuard implements CanActivate {
     // }
 
     // if Invalid Role
-    debugger
     if (
       state.url &&
       !state.url.includes('/app/setup/') &&
@@ -120,8 +119,8 @@ export class GeneralGuard implements CanActivate {
        * Test IF User updated the profile details
        */
     if (!this.configSvc.profileDetailsStatus) {
-      //===
-      //return this.router.navigate(['/app/user-profile/details', { isForcedUpdate: true }])
+      // ===
+      // return this.router.navigate(['/app/user-profile/details', { isForcedUpdate: true }])
     }
 
     /**
