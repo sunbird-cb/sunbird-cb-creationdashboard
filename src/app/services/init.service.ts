@@ -344,7 +344,6 @@ export class InitService {
     return publicConfig
   }
 
-
   private async fetchFeaturesStatus(): Promise<Set<string>> {
     // TODO: use the rootOrg and org to fetch the features
     const featureConfigs = await this.http
