@@ -75,7 +75,7 @@ export class DirectoryViewComponent implements OnInit {
     this.tabledata = {
       actions: [{ name: 'Edit', label: 'Edit info', icon: 'remove_red_eye', type: 'button' }],
       columns: [
-        { displayName: this.currentFilter, key: 'mdo' },
+        { displayName: 'Department Name', key: 'mdo' },
         { displayName: 'Type', key: 'type' },
       ],
       needCheckBox: false,
