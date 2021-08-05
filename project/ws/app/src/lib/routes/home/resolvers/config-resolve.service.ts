@@ -11,7 +11,6 @@ export class ConfigResolveService
   ) { }
   resolve(
   ): Observable<any> {
-
     return of({ ...this.confService })
   }
 }
