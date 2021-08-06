@@ -256,7 +256,7 @@ export class AllContentComponent implements OnInit, OnDestroy {
           // isMetaEditingDisabled: [false],
           // isContentEditingDisabled: [false],
           // sourceName: [_.get(this.departmentData, 'data.deptName')],
-          createdFor: (this.configService.userProfile) ? [this.configService.userProfile.rootOrgId] : [],
+          // createdFor: (this.configService.userProfile) ? [this.configService.userProfile.rootOrgId] : [],
         },
         // pageNo: loadMoreFlag ? this.pagination.offset : 0,
         sort_by: { lastUpdatedOn: 'desc' },
