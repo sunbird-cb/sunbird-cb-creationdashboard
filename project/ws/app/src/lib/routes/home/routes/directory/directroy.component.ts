@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core'
 import { NSProfileDataV2 } from '../../models/profile-v2.model'
 import { MatDialog } from '@angular/material/dialog'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { ConfigurationsService } from '@sunbird-cb/utils'
 /* tslint:disable */
 import _ from 'lodash'
@@ -33,6 +33,7 @@ export class DirectoryViewComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private route: ActivatedRoute,
+    private router: Router,
     private configSvc: ConfigurationsService,
     private directoryService: DirectoryService,
     private snackBar: MatSnackBar
@@ -90,8 +91,8 @@ export class DirectoryViewComponent implements OnInit {
       this.getDepartDataByKey('CBC')
     })
   }
-  onRoleClick(_role: any) {
-    // this.router.navigate([`/app/roles/${role.id}/users`, { currentDept: this.currentFilter, roleId: role.id, depatName: role.mdo }])
+  onRoleClick(role: any) {
+    this.router.navigate([`/app/roles/${role.id}/users`, { currentDept: this.currentFilter, roleId: role.id, depatName: role.mdo }])
   }
   filter(key: string | 'timestamp' | 'best' | 'saved') {
     this.getDepartDataByKey(key)

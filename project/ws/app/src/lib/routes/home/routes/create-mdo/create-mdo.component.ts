@@ -1,4 +1,4 @@
-
+import { DirectoryService } from '../../services/directory.services'
 import { Component, OnInit, Input } from '@angular/core'
 import { FormGroup, FormControl } from '@angular/forms'
 import { MatDialog, MatSnackBar } from '@angular/material'
@@ -7,12 +7,12 @@ import { UserPopupComponent } from '../user-popup/user-popup'
 import { LoaderService } from '../../services/loader.service'
 import { AuthInitService } from '../../services/init.service'
 import { ActivatedRoute, Router } from '@angular/router'
-import { CreateMDOService } from './create-mdo.services'
+import { CreateMDOService } from '../../services/create-mdo.services'
 import { ValueService } from '@sunbird-cb/utils'
 import { NsWidgetResolver } from '@sunbird-cb/resolver'
 import { ILeftMenu } from '@sunbird-cb/collection'
 import { map } from 'rxjs/operators'
-import { DirectoryService } from '../my-content/services/directory.services'
+import * as _ from 'lodash'
 interface IUser { userId: string, fullName: string; email: string; role: string }
 @Component({
   selector: 'ws-app-create-mdo',
@@ -25,6 +25,7 @@ export class CreateMdoComponent implements OnInit {
   @Input() nextAction = 'done'
   @Input() stage = 1
   @Input() type = ''
+  createdDepartment: any
   fracData: any = []
   contentForm!: FormGroup
 
@@ -39,11 +40,11 @@ export class CreateMdoComponent implements OnInit {
   complexityLevelList: any
   editorService: any
   submittedForm = true
-  userId!: string
   departmentId!: string
   departmentRole!: string
   data1: any
   updateId !: number
+  selected = ''
   department!: string
   widgetData!: NsWidgetResolver.IWidgetData<ILeftMenu>
   sideNavBarOpened = true
@@ -51,6 +52,8 @@ export class CreateMdoComponent implements OnInit {
   private bannerSubscription: any
   public screenSizeIsLtMedium = false
   hideMDOField = false
+  subTypeId!: any
+  depts = ['Domain', 'Exact']
 
   isLtMedium$ = this.valueSvc.isLtMedium$
   mode$ = this.isLtMedium$.pipe(map(isMedium => (isMedium ? 'over' : 'side')))
@@ -60,7 +63,10 @@ export class CreateMdoComponent implements OnInit {
 
   isUpdate = false
   isAddAdmin = false
+  deptType!: string
+  deptSubType!: string
   mdoDepartmentID!: number
+  loggedInUserId!: string
   workFlow = [{ isActive: true, isCompleted: false, name: 'Basic Details', step: 0 },
   { isActive: false, isCompleted: false, name: 'Classification', step: 1 },
   { isActive: false, isCompleded: false, name: 'Intended for', step: 2 }]
@@ -73,6 +79,8 @@ export class CreateMdoComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
     {
 
+      this.loggedInUserId = _.get(this.activatedRoute, 'snapshot.parent.data.configService.userProfile.userId')
+      // console.log(this.loggedInUserId)
       this.contentForm = new FormGroup({
         name: new FormControl(),
         head: new FormControl(),
@@ -82,82 +90,58 @@ export class CreateMdoComponent implements OnInit {
       this.activatedRoute.params.subscribe(params => {
         let data = params['data']
         this.department = params['department']
+        if (this.department === 'CBP Providers') {
+          this.department = 'CBP'
+        }
         this.isFromDirectory = params['isFromDirectory']
         this.isAddAdmin = params['addAdmin']
         if (this.isAddAdmin) {
           this.submittedForm = false
-          this.isUpdate = true
+          // this.isUpdate = true
           this.department = params['currentDept']
           this.departmentId = params['department']
           // this.departmentRole = `${params['currentDept']} ADMIN`
           this.departmentRole = `MDO ADMIN`
         }
-        data = JSON.parse(data)
+        if (data) {
+          data = JSON.parse(data)
+        }
 
         if (this.data !== undefined || this.data !== null) {
-          this.isUpdate = true
-          this.updateId = data.row.id
-          if (this.department === 'CBP') {
-            this.getMdoSubDepartment(this.updateId)
-          } else {
-            this.getCBPSubDepartment(this.updateId)
+          // this.isUpdate = true
+          if (data) {
+            this.updateId = data.row.id
+            this.subTypeId = data.row.typeid
+            this.isUpdate = true
+
           }
 
         }
-        this.contentForm = new FormGroup({
-
-          name: new FormControl(data.row.mdo),
-          head: new FormControl(data.row.head),
-          deptSubTypeId: new FormControl(data.row.typeid),
-          deptMdoSubTypeId: new FormControl(),
-        })
-        if (this.isUpdate && this.department === 'CBP') {
-
-          this.contentForm.controls['deptMdoSubTypeId'].disable()
+        if (data) {
+          this.contentForm = new FormGroup({
+            name: new FormControl(data.row.mdo),
+            head: new FormControl(data.row.head),
+            deptSubTypeId: new FormControl(),
+            deptMdoSubTypeId: new FormControl(),
+          })
         }
+
+        // if (this.isUpdate && this.department === 'CBP') {
+
+        //   this.contentForm.controls['deptMdoSubTypeId'].disable()
+        // }
       })
-      if (this.isUpdate) {
-        this.hideMDOField = true
-        this.contentForm.controls.deptMdoSubTypeId.patchValue(1)
-      } else if (this.department === 'MDO') {
-        this.contentForm.controls.deptMdoSubTypeId.patchValue(1)
-        this.hideMDOField = true
-      }
+      // if (this.isUpdate) {
+      //   this.hideMDOField = true
+      //   this.contentForm.controls.deptMdoSubTypeId.patchValue(1)
+      // } else if (this.department === 'MDO') {
+      //   this.contentForm.controls.deptMdoSubTypeId.patchValue(1)
+      //   this.hideMDOField = true
+      // }
     }
   }
-  getMdoSubDepartment(updateId: number) {
-    this.directoryService.getAllDepartments().subscribe(res => {
-      res.forEach((dept: { id: number, deptTypeInfos: any }) => {
-        if (updateId === dept.id) {
-          dept.deptTypeInfos.forEach((subId: any) => {
-            if (subId.deptType === 'MDO') {
-              this.mdoDepartmentID = subId.id
-              this.contentForm.controls.deptMdoSubTypeId.patchValue(subId.id)
-            }
-          })
-        }
-      })
-    })
-
-  }
-  getCBPSubDepartment(updateId: number) {
-    this.directoryService.getAllDepartments().subscribe(res => {
-      res.forEach((dept: { id: number, deptTypeInfos: any }) => {
-        if (updateId === dept.id) {
-          dept.deptTypeInfos.forEach((subId: any) => {
-            if (subId.deptType === 'CBP') {
-              this.mdoDepartmentID = subId.id
-              this.contentForm.controls.deptMdoSubTypeId.patchValue(subId.id)
-            }
-          })
-        }
-      })
-    })
-
-  }
   ngOnInit() {
-    this.getAllDepartmentsAPI()
-    this.getAllMDODepartmentsAPI()
+    this.getAllDepartmentsHeaderAPI()
     this.tabledata = {
       columns: [
         { displayName: 'Full name', key: 'fullName' },
@@ -173,25 +157,9 @@ export class CreateMdoComponent implements OnInit {
       this.sideNavBarOpened = !isLtMedium
       this.screenSizeIsLtMedium = isLtMedium
     })
-  }
-  getAllDepartmentsAPI() {
-    this.createMdoService.getAllSubDepartments(this.department).subscribe(res => {
-      this.subDepartments = res
-    })
-  }
-  getAllMDODepartmentsAPI() {
-    let subdept
+    this.getSubDepartment()
 
-    if (this.department === 'CBP') {
-      subdept = 'MDO'
-    } else {
-      subdept = 'CBP'
-    }
-    this.createMdoService.getAllSubDepartments(subdept).subscribe(res => {
-      this.subMDODepartments = res
-    })
   }
-
   checkCondition(first: string, seconnd: string) {
     if (first && seconnd) {
 
@@ -242,69 +210,64 @@ export class CreateMdoComponent implements OnInit {
     }
     return []
   }
+  getAllDepartmentsHeaderAPI() {
+    this.directoryService.getDepartmentTitles().subscribe(res => {
+      const department = JSON.parse(res.result.response.value)
+      department.orgTypeList.forEach((types: any) => {
+        if (types.name === this.department) {
+          this.subDepartments = types.subTypeList
+        }
+      })
+    })
+  }
+  getSubDepartment() {
+    this.directoryService.getDepartmentSubTitles().subscribe(res => {
+      const department = JSON.parse(res.result.response.value)
+      department.fields.forEach((e: { value: any; name: any }) => {
+        if (e.value === this.subTypeId) {
+          this.contentForm.controls.deptSubTypeId.patchValue(e.name)
+        }
+      })
+    })
+  }
+  selectedType(val: string) {
+    this.deptType = val
+  }
+  selectedSubType(val: string) {
+    this.deptSubType = val
+  }
   onSubmit() {
     if (!this.isUpdate) {
-
-      if (this.contentForm.value.name !== null && this.contentForm.value.head !== null
+      if (this.contentForm.value.name !== null
         && this.contentForm.value.deptSubTypeId !== null) {
-        const deptArr = []
-        const subdepartment = this.getSubDepartmennt(this.contentForm.value.deptSubTypeId)
-        deptArr.push(subdepartment)
-        const subMDOdepartment = this.getMdoSubDepartmennt(this.contentForm.value.deptMdoSubTypeId)
-        if (subMDOdepartment) {
-          deptArr.push(subMDOdepartment)
-        }
-        this.createMdoService.createDepartment(this.contentForm.value, deptArr).subscribe(res => {
-          this.departmentId = res.id
-          this.departmentRole = this.getRole()
-          if (this.departmentId && this.departmentRole) {
-            this.submittedForm = false
-            this.openSnackbar('Success')
-          }
-        },                                                                                (err: { error: any }) => {
-          this.openSnackbar(err.error.message)
-        })
-
+        this.createMdoService.createDepartment(this.contentForm.value, this.deptType,
+                                               this.department, this.loggedInUserId).subscribe(res => {
+            if (res.result.response === 'SUCCESS') {
+              this.submittedForm = false
+              const obj = {
+                id: res.result.organisationId,
+                depName: this.contentForm.value.name,
+                depType: this.department,
+              }
+              this.createdDepartment = obj
+              this.openSnackbar(`Success`)
+            }
+          })
       }
     } else {
-      if (this.contentForm.value.name !== null && this.contentForm.value.head !== null
+      if (this.contentForm.value.name !== null
         && this.contentForm.value.deptSubTypeId !== null) {
-        const deptArr = []
-        const subdepartment = this.getSubDepartmennt(this.contentForm.value.deptSubTypeId)
-        deptArr.push(subdepartment)
-        const subMDOdepartment = this.getMdoSubDepartmennt(this.mdoDepartmentID)
-        if (subMDOdepartment) {
-          deptArr.push(subMDOdepartment)
-        }
-        this.createMdoService.updateDepartment(this.contentForm.value, this.updateId, deptArr).subscribe(res => {
-          this.departmentId = res.id
-          this.departmentRole = this.getRole()
-          if (this.departmentId && this.departmentRole) {
-            this.openSnackbar('Success')
-            this.router.navigate(['/app/home/directory', { department: this.department }])
-
+        this.createMdoService.updateDepartment(this.updateId, this.deptType,
+                                               this.department, this.loggedInUserId).subscribe(res => {
+            if (res.result.response === 'SUCCESS') {
+              this.openSnackbar(`Success`)
+              this.router.navigate([`/app/home/directory`])
+            }
           }
-        },                                                                                               (err: { error: any }) => {
-          this.openSnackbar(err.error.message)
-        })
-
+          )
       }
     }
 
-  }
-  getSubDepartmennt(id: number) {
-    let obj
-    this.subDepartments.forEach((element: any) => {
-      if (element.id === id) {
-        if (this.isUpdate) {
-          obj = element.id
-        } else {
-          obj = element
-        }
-
-      }
-    })
-    return obj
   }
   getMdoSubDepartmennt(id: number) {
     let obj
@@ -332,7 +295,7 @@ export class CreateMdoComponent implements OnInit {
   }
 
   capitalizeFirstLetter(uppercaseString: string) {
-    return uppercaseString.charAt(0).toUpperCase() + uppercaseString.slice(1)
+    return uppercaseString
   }
   onDestroy() {
     if (this.defaultSideNavBarOpenedSubscription) {
