@@ -13,6 +13,7 @@ const API_END_POINTS = {
   WF_HISTORY_BY_APPID: 'apis/protected/v8/workflowhandler/historyByApplicationId/',
   SEARCH_USER: 'apis/protected/v8/user/autocomplete',
   USER_BDD: '/apis/protected/v8/portal/cbc/deptAction/userrole',
+  GET_ALL_KONG_USER: '/apis/proxies/v8/user/v1/search',
 }
 
 @Injectable({
@@ -65,5 +66,15 @@ export class UsersService {
   }
   deleteUser(user: object): Observable<any> {
     return this.http.patch<any>(`${API_END_POINTS.USER_BDD}/`, user)
+  }
+  getAllKongUsers(depId: string): Observable<any> {
+    const reqBody = {
+      request: {
+        filters: {
+          rootOrgId: depId,
+        },
+      },
+    }
+    return this.http.post<any>(`${API_END_POINTS.GET_ALL_KONG_USER}`, reqBody)
   }
 }

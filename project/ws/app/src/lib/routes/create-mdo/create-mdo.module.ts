@@ -4,8 +4,7 @@ import { CreateMDORoutingModule } from './create-mdo-routing.module'
 import { HomeComponent } from './routes/home/home.component'
 import {
   BtnPageBackModuleAdmin,
-  LeftMenuModule, GroupCheckboxModule,
-  UIAdminTableModule, ScrollspyLeftMenuModule,
+  LeftMenuModule, GroupCheckboxModule, ScrollspyLeftMenuModule,
 } from '@sunbird-cb/collection'
 import { HomeModule } from '../home/home.module'
 import { RouterModule } from '@angular/router'
@@ -18,6 +17,7 @@ import {
 import { MatCardModule } from '@angular/material/card'
 import { RolesAccessComponent } from '../access/routes/roles-access/roles-access.component'
 import { WidgetResolverModule } from '@sunbird-cb/resolver'
+import { UIAdminTableModule } from '../../head/ui-admin-table/ui-admin-table.module'
 
 @NgModule({
   declarations: [HomeComponent, UsersComponent, RolesAccessComponent],

@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { AccessRoutingModule } from './access-routing.module'
-import { BtnPageBackModule, LeftMenuModule, GroupCheckboxModule, UIAdminTableModule } from '@sunbird-cb/collection'
+import { BtnPageBackModule, LeftMenuModule, GroupCheckboxModule } from '@sunbird-cb/collection'
 import { WidgetResolverModule } from '@sunbird-cb/resolver'
 import { HomeModule } from '../home/home.module'
 import { RouterModule } from '@angular/router'
@@ -13,6 +13,7 @@ import {
   MatIconModule,
 } from '@angular/material'
 import { MatCardModule } from '@angular/material/card'
+import { UIAdminTableModule } from '../../head/ui-admin-table/ui-admin-table.module'
 
 @NgModule({
   declarations: [UsersComponent],
