@@ -1,6 +1,7 @@
-import { RolesAccessComponent } from '../access/routes/roles-access/roles-access.component'
+
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
+import { RolesAccessComponent } from '../home/routes/roles-access/roles-access.component'
 import { HomeComponent } from './routes/home/home.component'
 import { UsersComponent } from './routes/users/users.component'
 

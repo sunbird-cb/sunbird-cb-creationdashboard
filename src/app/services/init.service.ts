@@ -24,7 +24,7 @@ import { environment } from '../../environments/environment'
 /* tslint:disable */
 import _ from 'lodash'
 import { map } from 'rxjs/operators'
-// import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid'
 /* tslint:enable */
 // interface IDetailsResponse {
 //   tncStatus: boolean
@@ -258,10 +258,10 @@ export class InitService {
           //   const organisationData = userPidProfile.result.response.organisations
           //   userRoles = (organisationData[0].roles.length > 0) ? organisationData[0].roles : []
           // }
-          // if (localStorage.getItem('telemetrySessionId')) {
-          //   localStorage.removeItem('telemetrySessionId')
-          // }
-          // localStorage.setItem('telemetrySessionId', uuid())
+          if (localStorage.getItem('telemetrySessionId')) {
+            localStorage.removeItem('telemetrySessionId')
+          }
+          localStorage.setItem('telemetrySessionId', uuid())
           this.configSvc.unMappedUser = userPidProfile
           const profileV2 = _.get(userPidProfile, 'profiledetails')
           this.configSvc.userProfile = {
@@ -313,7 +313,7 @@ export class InitService {
         // .toPromise()
         this.configSvc.userGroups = new Set(details.group)
         this.configSvc.userRoles = new Set((details.roles || []).map((v: string) => v.toLowerCase()))
-        // this.configSvc.isActive = details.isActive
+        this.configSvc.isActive = details.isActive
         return details
       } catch (e) {
         this.configSvc.userProfile = null
