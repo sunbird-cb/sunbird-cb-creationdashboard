@@ -17,7 +17,7 @@ import {
 import { MatCardModule } from '@angular/material/card'
 import { WidgetResolverModule } from '@sunbird-cb/resolver'
 import { UIAdminTableModule } from '../../head/ui-admin-table/ui-admin-table.module'
-import { RolesAccessComponent } from '../home/routes/roles-access/roles-access.component'
+import { RolesAccessComponent } from '../access/routes/roles-access/roles-access.component'
 
 @NgModule({
   declarations: [HomeComponent, UsersComponent, RolesAccessComponent],

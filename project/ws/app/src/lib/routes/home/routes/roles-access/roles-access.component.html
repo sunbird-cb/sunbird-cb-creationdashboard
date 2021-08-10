@@ -12,8 +12,7 @@
     <mat-card-content>
       <ng-container>
         <div *ngIf="!tabledata">Loading ...</div>
-        <ws-widget-ui-user-table *ngIf="tabledata" [tableData]='tabledata' [data]='data' (eOnRowClick)="onRoleClick()"
-          [needAddAdmin]='false' [needCreateUser]='false'>
+        <ws-widget-ui-user-table *ngIf="tabledata" [tableData]='tabledata' [data]='data' (eOnRowClick)="onRoleClick()">
         </ws-widget-ui-user-table>
       </ng-container>
     </mat-card-content>

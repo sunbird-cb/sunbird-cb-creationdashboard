@@ -4,15 +4,12 @@ import {
 } from '@angular/core'
 import { SelectionModel } from '@angular/cdk/collections'
 import { MatTableDataSource } from '@angular/material/table'
-import { MatDialog, MatPaginator, MatSnackBar } from '@angular/material'
+import { MatDialog, MatPaginator } from '@angular/material'
 import { MatSort } from '@angular/material/sort'
 import * as _ from 'lodash'
 
 import { ITableData, IColums } from '../interface/interfaces'
 import { Router, ActivatedRoute } from '@angular/router'
-import { UserPopupComponent } from '../user-popup/user-popup'
-import { CreateMDOService as MDO1 } from '../create-mdo.services'
-import { CreateMDOService as MDO2 } from '../../../routes/home/services/create-mdo.services'
 
 @Component({
   selector: 'ws-widget-ui-user-table',
@@ -22,10 +19,6 @@ import { CreateMDOService as MDO2 } from '../../../routes/home/services/create-m
 export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData!: ITableData | undefined
   @Input() data?: []
-  @Input() needCreateUser?: boolean = undefined
-  @Input() needAddAdmin?: boolean
-  @Input() isUpload?: boolean
-  @Input() isCreate?: boolean
   @Input() otherInput?: any
   @Input() inputDepartmentId?: string | undefined
   @Output() clicked?: EventEmitter<any>
@@ -46,10 +39,7 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
   selection = new SelectionModel<any>(true, [])
   constructor(
     private router: Router, public dialog: MatDialog,
-    private activatedRoute: ActivatedRoute,
-    private createMDOService: MDO1,
-    private createMDOService2: MDO2,
-    private snackBar: MatSnackBar) {
+    private activatedRoute: ActivatedRoute) {
     this.dataSource = new MatTableDataSource<any>()
     this.actionsClick = new EventEmitter()
     this.clicked = new EventEmitter()
@@ -68,10 +58,6 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
     this.activatedRoute.params.subscribe(params => {
       this.departmentRole = params['currentDept']
       this.departmentId = params['roleId']
-      if (this.needCreateUser !== false && this.departmentRole && this.departmentId) {
-        this.needAddAdmin = true
-        this.needCreateUser = true
-      }
 
     })
     if (!this.departmentId && this.inputDepartmentId) {
@@ -126,56 +112,6 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
     }
     return ''
   }
-  openPopup() {
-    const dialogRef = this.dialog.open(UserPopupComponent, {
-      maxHeight: 'auto',
-      height: '65%',
-      width: '80%',
-      panelClass: 'remove-pad',
-    })
-    dialogRef.afterClosed().subscribe((response: any) => {
-      response.data.forEach((user: { userId: string }) => {
-        if (this.departmentId) {
-          this.createMDOService2.migrateDepartment(user.userId, this.departmentId).subscribe(res => {
-            if (res) {
-              this.assignAdmin(user)
-            }
-          },
-                                                                                             (err: { error: any }) => {
-              this.openSnackbar(err.error.message)
-            })
-        }
-      })
-
-    })
-
-  }
-  assignAdmin(user: any) {
-    if (this.departmentId) {
-      let role
-      if (this.departmentRole === 'CBC') {
-        role = `CBC_ADMIN`
-      } else {
-        role = `MDO_ADMIN`
-      }
-      const dept = this.departmentId
-      this.createMDOService.assignAdminToDepartment(user.userId, dept, role).subscribe(res => {
-        if (res) {
-          this.snackBar.open('Admin assigned Successfully')
-          this.router.navigate(['/app/home/directory', { department: this.departmentRole }])
-        }
-      },
-                                                                                       (err: { error: any }) => {
-          this.openSnackbar(err.error.message)
-        })
-    }
-
-  }
-  private openSnackbar(primaryMsg: string, duration: number = 5000) {
-    this.snackBar.open(primaryMsg, 'X', {
-      duration,
-    })
-  }
   isAllSelected() {
     const numSelected = this.selection.selected.length
     const numRows = this.dataSource.data.length
@@ -207,7 +143,7 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
   }
   gotoCreateUser() {
     this.router.navigate([`/app/home/create-user`],
-                         {
+      {
         queryParams: {
           id: this.departmentId, currentDept: this.departmentRole,
           createDept: JSON.stringify(this.otherInput),
