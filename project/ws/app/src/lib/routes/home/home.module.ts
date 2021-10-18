@@ -37,7 +37,7 @@ import { RouterModule } from '@angular/router'
 import { HomeRoutingModule } from './home.rounting.module'
 import { HomeComponent } from './routes/home/home.component'
 import { UsersViewComponent } from './routes/users-view/users-view.component'
-import { AvatarPhotoModule, BtnPageBackModule, LeftMenuModule, UIAdminTableModule, UserAutocompleteModule, BreadcrumbsOrgModule, AtGlanceModule, CardTableModule, PipeContentRouteModule, BtnFullscreenModule } from '@sunbird-cb/collection'
+import { AvatarPhotoModule, BtnPageBackModule, LeftMenuModule, UserAutocompleteModule, BreadcrumbsOrgModule, AtGlanceModule, CardTableModule, PipeContentRouteModule, BtnFullscreenModule } from '@sunbird-cb/collection'
 import { AboutComponent } from './routes/about/about.component'
 import { RolesAccessComponent } from './routes/roles-access/roles-access.component'
 import { DirectoryViewComponent } from './routes/directory/directroy.component'
@@ -58,6 +58,7 @@ import { ComingSoonComponent } from './routes/coming-soon/coming-soon.component'
 import { WelcomeComponent } from './routes/welcome/welcome.component'
 import { CountModule } from './routes/welcome/count-component/count.module'
 import { RainDashboardsModule } from '@sunbird-cb/rain-dashboards'
+import { UIAdminTableModule } from '../../head/ui-admin-table/ui-admin-table.module'
 
 @NgModule({
   declarations: [

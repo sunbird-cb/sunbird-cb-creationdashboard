@@ -3,7 +3,7 @@ FROM node:14
 WORKDIR /app
 COPY . .
 
-RUN yarn && yarn add moment && yarn add vis-util && npm run build-dev --prod --build-optimizer
+RUN yarn && yarn add moment && yarn add vis-util && npm run build --prod --build-optimizer
 RUN npm run compress:brotli
 
 WORKDIR /app/dist

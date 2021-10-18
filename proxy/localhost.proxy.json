@@ -6,6 +6,9 @@
     "changeOrigin": true,
     "pathRewrite": {
       "/apis": "/apis"
+    },
+    "headers": {
+      "Cookie": "connect.sid=s%3A8m4NChgdU_cBwQ0CMlHFtGDsTMtZFqVq.7LpWpc7WqgDCCCy7QmpII4rx3l0pZdWf90V9hnlvQYI"
     }
   },
   "/content-api/*": {

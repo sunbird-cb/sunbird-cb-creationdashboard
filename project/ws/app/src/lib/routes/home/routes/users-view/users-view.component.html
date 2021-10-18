@@ -30,8 +30,7 @@
         <!-- <ws-widget-ui-user-table [tableData]='tabledata' [data]='data'>
         </ws-widget-ui-user-table> -->
         <ws-widget-ui-user-table [tableData]='tabledata' [data]='data' isUpload=false isCreate=false
-          [needCreateUser]="false" [needAddAdmin]="false" (eOnCreateClick)="onCreateClick()"
-          (eOnRowClick)="onRoleClick()" (actionsClick)="menuActions($event)">
+          (eOnCreateClick)="onCreateClick()" (eOnRowClick)="onRoleClick()" (actionsClick)="menuActions($event)">
         </ws-widget-ui-user-table>
       </ng-container>
     </mat-card-content>

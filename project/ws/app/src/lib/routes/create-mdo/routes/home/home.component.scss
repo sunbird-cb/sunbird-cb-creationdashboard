@@ -5,13 +5,19 @@
 .container-balanced {
   @extend %page-center;
   height: auto;
-  min-height: 75vh;
+  // min-height: 75vh;
   padding:12px;
 }
-
+.wid-mi-25{
+    position: inherit !important;
+    height: 30px;
+    margin-left: 12%;
+    width: 100%;
+}
 .container2 {
   position: relative;
 }
+
 .container-balanced-banner {
   @extend %page-center;
   height: auto;
