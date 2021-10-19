@@ -22,7 +22,7 @@ import {
 } from '@sunbird-cb/utils'
 import { environment } from '../../environments/environment'
 /* tslint:disable */
-import _ from 'lodash'
+import _, { Omit } from 'lodash'
 import { map } from 'rxjs/operators'
 import { v4 as uuid } from 'uuid'
 /* tslint:enable */
