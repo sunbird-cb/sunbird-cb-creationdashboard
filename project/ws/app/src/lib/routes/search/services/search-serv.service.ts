@@ -4,7 +4,15 @@ import { NSSearch } from '@sunbird-cb/collection'
 import { ConfigurationsService, EventService, WsEvents } from '@sunbird-cb/utils'
 import { Observable, of } from 'rxjs'
 import { SearchApiService } from '../apis/search-api.service'
-import { IFilterUnitItem, IFilterUnitResponse, ISearchAutoComplete, ISearchQuery, ISearchRequest, ISearchSocialSearchPartialRequest, ISocialSearchRequest } from '../models/search.model'
+import {
+  IFilterUnitItem,
+  IFilterUnitResponse,
+  ISearchAutoComplete,
+  ISearchQuery,
+  ISearchRequest,
+  ISearchSocialSearchPartialRequest,
+  ISocialSearchRequest,
+} from '../models/search.model'
 
 const API_END_POINTS = {
   translateFiltersBase: '/apis/protected/v8/translate/filterdata',
@@ -387,8 +395,13 @@ export class SearchServService {
           query,
           filters,
           locale,
+          eventSubType: WsEvents.EnumTelemetrySubType.Search,
+          size: 1,
+          type: 'search',
         },
-        type: 'search',
+        edata: {
+          type: WsEvents.EnumTelemetrySubType.Search,
+        },
       },
       from: 'search',
       to: 'telemetry',
