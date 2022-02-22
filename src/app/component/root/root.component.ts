@@ -9,6 +9,8 @@ import {
   ApplicationRef,
 } from '@angular/core'
 import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
   NavigationCancel,
   NavigationEnd,
   NavigationError,
@@ -24,6 +26,8 @@ import {
   ValueService,
   WsEvents,
   LoggerService,
+  EventService,
+  UtilityService,
 } from '@sunbird-cb/utils'
 import { delay, first } from 'rxjs/operators'
 import { MobileAppsService } from '../../services/mobile-apps.service'
@@ -49,7 +53,7 @@ export class RootComponent implements OnInit, AfterViewInit {
   appUpdateTitleRef: ElementRef | null = null
   @ViewChild('appUpdateBody', { static: true })
   appUpdateBodyRef: ElementRef | null = null
-
+  currentRouteData: any = []
   isXSmall$ = this.valueSvc.isXSmall$
   routeChangeInProgress = false
   showNavbar = false
@@ -61,6 +65,7 @@ export class RootComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     // public authSvc: AuthKeycloakService,
+    private route: ActivatedRoute,
     private appRef: ApplicationRef,
     private logger: LoggerService,
     private swUpdate: SwUpdate,
@@ -68,10 +73,12 @@ export class RootComponent implements OnInit, AfterViewInit {
     public configSvc: ConfigurationsService,
     private valueSvc: ValueService,
     private telemetrySvc: TelemetryService,
+    private eventSvc: EventService,
     private mobileAppsSvc: MobileAppsService,
     private rootSvc: RootService,
     private btnBackSvc: BreadcrumbsOrgService,
     private changeDetector: ChangeDetectorRef,
+    private utilitySvc: UtilityService,
   ) {
     this.mobileAppsSvc.init()
   }
@@ -85,7 +92,7 @@ export class RootComponent implements OnInit, AfterViewInit {
 
     this.btnBackSvc.initialize()
     // Application start telemetry
-    this.telemetrySvc.start('app', 'view', '')
+    // this.telemetrySvc.start('app', 'view', )
     this.appStartRaised = true
     // if (this.authSvc.isAuthenticated) {
     //   this.telemetrySvc.start('app', 'view', '')
@@ -119,6 +126,25 @@ export class RootComponent implements OnInit, AfterViewInit {
       }
 
       if (event instanceof NavigationEnd) {
+        const snapshot = this.route.snapshot
+        // console.log('root.snapshot.root.firstChild ', snapshot.root.firstChild)
+        // console.log('firstChild ', snapshot.firstChild)
+        const firstChild = snapshot.root.firstChild
+        this.getChildRouteData(snapshot, firstChild)
+        // tslint:disable-next-line: no-console
+        // console.log('Final currentDataRoute', this.currentRouteData)
+        this.utilitySvc.setRouteData(this.currentRouteData)
+        const pageContext = this.utilitySvc.routeData
+        const data = {
+          pageContext,
+        }
+        this.raiseAppStartTelemetry()
+        // console.log('data: ', data)
+        if (data.pageContext.pageId && data.pageContext.module) {
+          this.telemetrySvc.impression(data)
+        } else {
+          this.telemetrySvc.impression()
+        }
         this.telemetrySvc.impression()
         if (this.appStartRaised) {
           this.telemetrySvc.audit(WsEvents.WsAuditTypes.Created, 'Login', {})
@@ -130,7 +156,17 @@ export class RootComponent implements OnInit, AfterViewInit {
       this.showNavbar = display
     })
   }
-
+  getChildRouteData(snapshot: ActivatedRouteSnapshot, firstChild: ActivatedRouteSnapshot | null) {
+    if (firstChild) {
+      if (firstChild.data) {
+        // console.log('firstChild.data', firstChild.data)
+        this.currentRouteData.push(firstChild.data)
+      }
+      if (firstChild.firstChild) {
+        this.getChildRouteData(snapshot, firstChild.firstChild)
+      }
+    }
+  }
   ngAfterViewInit() {
     this.initAppUpdateCheck()
   }
@@ -173,6 +209,27 @@ export class RootComponent implements OnInit, AfterViewInit {
           )
         })
       }
+    }
+  }
+  raiseAppStartTelemetry() {
+    if (!this.appStartRaised) {
+      // Application start telemetry
+      const event = {
+        eventType: WsEvents.WsEventType.Telemetry,
+        eventLogLevel: WsEvents.WsEventLogLevel.Info,
+        data: {
+          edata: { type: '' },
+          object: {},
+          state: WsEvents.EnumTelemetrySubType.Loaded,
+          eventSubType: WsEvents.EnumTelemetrySubType.Loaded,
+          type: 'app',
+          mode: 'view',
+        },
+        from: '',
+        to: 'Telemetry',
+      }
+      this.eventSvc.dispatchEvent<WsEvents.IWsEventTelemetryInteract>(event)
+      this.appStartRaised = true
     }
   }
 }

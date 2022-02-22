@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { NsContent } from '@sunbird-cb/collection'
-import { ConfigurationsService, EventService } from '@sunbird-cb/utils'
+import { ConfigurationsService } from '@sunbird-cb/utils'
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser'
 @Component({
   selector: 'ws-app-learning-card',
@@ -17,7 +17,7 @@ export class LearningCardComponent implements OnInit, OnChanges {
   defaultThumbnail = ''
   description: SafeHtml = ''
   constructor(
-    private events: EventService,
+    // private events: EventService,
     private configSvc: ConfigurationsService,
     private domSanitizer: DomSanitizer,
   ) { }
@@ -39,13 +39,13 @@ export class LearningCardComponent implements OnInit, OnChanges {
   }
 
   raiseTelemetry() {
-    this.events.raiseInteractTelemetry(
-      'click',
-      'cardSearch',
-      {
-        contentId: this.content.identifier,
+    // this.events.raiseInteractTelemetry(
+    //   'click',
+    //   'cardSearch',
+    //   {
+    //     contentId: this.content.identifier,
 
-      },
-    )
+    //   },
+    // )
   }
 }
