@@ -33,7 +33,7 @@ import {
   PipeContentRoutePipe,
 } from '@sunbird-cb/collection'
 import { WidgetResolverModule } from '@sunbird-cb/resolver'
-import { LoggerService, PipeSafeSanitizerModule } from '@sunbird-cb/utils'
+import { LoggerService, PipeSafeSanitizerModule, TelemetryService } from '@sunbird-cb/utils'
 import { SearchModule } from '@ws/app/src/public-api'
 import 'hammerjs'
 import { KeycloakAngularModule } from 'keycloak-angular'
@@ -178,6 +178,7 @@ const getBaseHref = (platformLocation: PlatformLocation): string => {
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     { provide: ErrorHandler, useClass: GlobalErrorHandlingService },
+    { provide: TelemetryService, deps: [environment] }
   ],
 })
 export class AppModule { }
