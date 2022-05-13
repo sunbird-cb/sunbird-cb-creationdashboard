@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { AuthKeycloakService, ConfigurationsService, NsPage } from '@sunbird-cb/utils'
 import { Subscription } from 'rxjs'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'ws-public-logout',
@@ -20,6 +20,7 @@ export class PublicLogoutComponent implements OnInit, OnDestroy {
     private configSvc: ConfigurationsService,
     private activateRoute: ActivatedRoute,
     private authSvc: AuthKeycloakService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -36,5 +37,8 @@ export class PublicLogoutComponent implements OnInit, OnDestroy {
     if (this.subscriptionContact) {
       this.subscriptionContact.unsubscribe()
     }
+  }
+  login() {
+    this.router.navigate(['protected', 'v8', 'resource'])
   }
 }
