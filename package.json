@@ -46,7 +46,7 @@
     "@sunbird-cb/design-system": "^0.0.2",
     "@sunbird-cb/rain-dashboards": "^0.2.0",
     "@sunbird-cb/resolver": "^1.0.0",
-    "@sunbird-cb/utils": "1.0.9",
+    "@sunbird-cb/utils": "^1.0.9",
     "@types/file-saver": "^2.0.1",
     "@types/lodash": "^4.14.172",
     "@types/video.js": "^7.3.11",
