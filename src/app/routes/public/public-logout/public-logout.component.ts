@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { AuthKeycloakService, ConfigurationsService, NsPage } from '@sunbird-cb/utils'
+import { ConfigurationsService, NsPage } from '@sunbird-cb/utils'
 import { Subscription } from 'rxjs'
 import { ActivatedRoute } from '@angular/router'
 
@@ -19,7 +19,7 @@ export class PublicLogoutComponent implements OnInit, OnDestroy {
   constructor(
     private configSvc: ConfigurationsService,
     private activateRoute: ActivatedRoute,
-    private authSvc: AuthKeycloakService,
+    // private authSvc: AuthKeycloakService,
   ) { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class PublicLogoutComponent implements OnInit, OnDestroy {
     if (this.configSvc.instanceConfig) {
       this.contactUsMail = this.configSvc.instanceConfig.mailIds.contactUs
     }
-    this.authSvc.force_logout().then(() => { })
+    // this.authSvc.force_logout().then(() => { })
   }
 
   ngOnDestroy() {
