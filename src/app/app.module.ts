@@ -181,6 +181,7 @@ const getBaseHref = (platformLocation: PlatformLocation): string => {
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     { provide: ErrorHandler, useClass: GlobalErrorHandlingService },
     { provide: TelemetryService, deps: [environment] },
+
   ],
 })
 export class AppModule { }
