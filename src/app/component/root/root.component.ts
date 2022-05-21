@@ -89,10 +89,9 @@ export class RootComponent implements OnInit, AfterViewInit {
     } catch (_ex) {
       this.isInIframe = false
     }
-
     this.btnBackSvc.initialize()
     // Application start telemetry
-    // this.telemetrySvc.start('app', 'view', )
+    // this.telemetrySvc.start('app', 'view')
     this.appStartRaised = true
     // if (this.authSvc.isAuthenticated) {
     //   this.telemetrySvc.start('app', 'view', '')

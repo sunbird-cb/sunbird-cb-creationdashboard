@@ -16,6 +16,7 @@ import { MobileAppHomeComponent } from './routes/public/mobile-app/components/mo
 import { PublicAboutComponent } from './routes/public/public-about/public-about.component'
 import { PublicContactComponent } from './routes/public/public-contact/public-contact.component'
 import { PublicFaqComponent } from './routes/public/public-faq/public-faq.component'
+import { PublicLogoutComponent } from './routes/public/public-logout/public-logout.component'
 import { TncComponent } from './routes/tnc/tnc.component'
 import { TncAppResolverService } from './services/tnc-app-resolver.service'
 import { TncPublicResolverService } from './services/tnc-public-resolver.service'
@@ -263,6 +264,17 @@ const routes: Routes = [
   {
     path: 'public/contact',
     component: PublicContactComponent,
+    data: {
+      pageType: 'feature',
+      pageKey: 'public-faq',
+    },
+    resolve: {
+      pageData: PageResolve,
+    },
+  },
+  {
+    path: 'public/logout',
+    component: PublicLogoutComponent,
     data: {
       pageType: 'feature',
       pageKey: 'public-faq',
