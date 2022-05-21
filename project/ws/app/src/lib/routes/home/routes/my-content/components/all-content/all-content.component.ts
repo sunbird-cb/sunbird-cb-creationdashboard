@@ -19,9 +19,10 @@ import { ILeftMenu, ITable } from '@sunbird-cb/collection'
 
 const defaultFilter = [
   {
-    key: 'contentType',
+    key: 'primaryCategory',
     value: [
-      'Collection', 'Course', 'Learning Path',
+      'Course',
+      'Program',
     ],
   },
 ]
@@ -217,9 +218,9 @@ export class AllContentComponent implements OnInit, OnDestroy {
       case 'rejected':
         return ['Draft']
       case 'inreview':
-        return ['InReview', 'QualityReview']
+        return ['UnderReview', 'QualityReview', 'Review']
       case 'review':
-        return ['InReview']
+        return ['InReview', 'Review']
       case 'published':
       case 'expiry':
         return ['Live']
@@ -231,6 +232,8 @@ export class AllContentComponent implements OnInit, OnDestroy {
         return ['Unpublished']
       case 'deleted':
         return ['Deleted']
+      case 'reviewed':
+        return ['Review', 'UnderPublish']
     }
     return ['Draft']
   }
@@ -248,22 +251,22 @@ export class AllContentComponent implements OnInit, OnDestroy {
       query: this.queryFilter,
       request: {
         query: this.queryFilter,
-        filters: {
-          status: this.fetchStatus(),
-          // creatorContacts: <string[]>[],
-          // trackContacts: <string[]>[],
-          // publisherDetails: <string[]>[],
-          // isMetaEditingDisabled: [false],
-          // isContentEditingDisabled: [false],
-          // sourceName: [_.get(this.departmentData, 'data.deptName')],
-          // createdFor: (this.configService.userProfile) ? [this.configService.userProfile.rootOrgId] : [],
-        },
+        filters: <any>{},
+        // status: this.fetchStatus(),
+        // creatorContacts: <string[]>[],
+        // trackContacts: <string[]>[],
+        // publisherDetails: <string[]>[],
+        // isMetaEditingDisabled: [false],
+        // isContentEditingDisabled: [false],
+        // sourceName: [_.get(this.departmentData, 'data.deptName')],
+        // createdFor: (this.configService.userProfile) ? [this.configService.userProfile.rootOrgId] : [],
+        // },
         // pageNo: loadMoreFlag ? this.pagination.offset : 0,
         sort_by: { lastUpdatedOn: 'desc' },
         // pageSize: this.pagination.limit,
         facets: [
           'primaryCategory',
-          'mimeType',
+          // 'mimeType',
         ],
       },
     }
@@ -278,6 +281,16 @@ export class AllContentComponent implements OnInit, OnDestroy {
         requestData.request.filters = { ...requestData.request.filters, [v.key]: v.value }
       })
     }
+    requestData.request.filters['status'] = this.fetchStatus()
+    if (requestData.request.filters['status'].includes('UnderReview') ||
+      requestData.request.filters['status'].includes('UnderPublish')) {
+      requestData.request.filters['reviewStatus'] =
+        requestData.request.filters['status'].includes('UnderPublish') ? 'Reviewed' : 'InReview'
+    }
+    if (requestData.request.filters.status.includes('Unpublished')) {
+      requestData.request.filters['status'] = ['Retired']
+    }
+    // requestData.request.filters['createdFor'] = (this.configService.userProfile) ? [this.configService.userProfile.rootOrgId] : [],
 
     this.loadService.changeLoad.next(true)
     const observable =
