@@ -139,16 +139,17 @@ export class RootComponent implements OnInit, AfterViewInit {
         }
         this.raiseAppStartTelemetry()
         // console.log('data: ', data)
-        if (data.pageContext.pageId && data.pageContext.module) {
-          this.telemetrySvc.impression(data)
-        } else {
-          this.telemetrySvc.impression()
-        }
-        this.telemetrySvc.impression()
-        if (this.appStartRaised) {
-          this.telemetrySvc.audit(WsEvents.WsAuditTypes.Created, 'Login', {})
-          this.appStartRaised = false
-        }
+        try {
+          if (data.pageContext.pageId && data.pageContext.module) {
+            this.telemetrySvc.impression(data)
+          } else {
+            this.telemetrySvc.impression()
+          }
+          if (this.appStartRaised) {
+            this.telemetrySvc.audit(WsEvents.WsAuditTypes.Created, 'Login', {})
+            this.appStartRaised = false
+          }
+        } catch { }
       }
     })
     this.rootSvc.showNavbarDisplay$.pipe(delay(500)).subscribe(display => {
