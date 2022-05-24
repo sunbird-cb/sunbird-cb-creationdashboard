@@ -87,7 +87,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
         if (objVal === 'CONTENT_CREATOR' || objVal === 'EDITOR' || objVal === 'PUBLISHER' || objVal === 'REVIEWER') {
           this.showCBPLink = true
         }
-        if (objVal === 'MEMBER') {
+        if (objVal === 'PUBLIC') {
           this.showKarmayogiLink = true
         }
       })
