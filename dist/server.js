@@ -24,7 +24,7 @@ app.use(
     frameguard: {
       action: 'sameorigin',
     },
-    noCache: true,
+    noCache: false,
     hidePoweredBy: true,
     ieNoOpen: true,
     dnsPrefetchControl: {
