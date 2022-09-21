@@ -22,7 +22,7 @@ export class MyDashboardHomeComponent implements OnInit {
   getDashboardForKM =
     '/apis/proxies/v8/dashboard/analytics/getDashboardConfig/Karmayogi'
   getDashboardForProfile =
-    '/apis/proxies/v8/dashboard/analytics/getDashboardsForProfile/Karmayogi'
+    '/apis/proxies/v8/dashboard/analytics/getDashboardsForProfile/Karmayogi?realm=cbc'
   getChartV2 =
     '/apis/proxies/v8/dashboard/analytics/getChartV2/Karmayogi'
 
